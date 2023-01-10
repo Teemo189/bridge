@@ -10,3 +10,4 @@ ablog
 ghapi
 pandas
 tabulate
+sphinx-tabs
