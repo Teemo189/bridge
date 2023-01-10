@@ -11,3 +11,5 @@ ghapi
 pandas
 tabulate
 sphinx-tabs
+sphinx-prompt
+sphinx-toolbox
