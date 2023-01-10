@@ -1,0 +1,55 @@
+表格
+==================================
+
+.. raw:: html
+
+   <style>
+      #biaoge,td {
+         border: 2px solid black;
+         border-collapse: collapse;
+         margin-bottom:40px;
+        
+      }
+      th, td {
+         padding-top: 5px;
+         padding-bottom:5px;
+         padding-left:5px;
+         padding-right:5px;
+         
+      }
+      #qqq {
+         border: 0px;
+      }
+   </style>
+		<table id="biaoge">
+
+         <caption style="caption-side:top;text-align: center;color:black" ><b style="text-align:center"> <div id="B4.5.4-1">表4.5.4-1 扩散系数衰减值</b></caption>	
+              
+		    <tr>
+		        <td width="400px" align="center">混凝土类型</td>
+		        <td width="400px" align="center">扩散系数衰减值<i>m</i></td>
+		    </tr>
+		   <tr>
+		        <td  align="center">普通硅酸盐混凝土、掺加硅灰的混凝土</td>
+		        <td  align="center">0.20</td>
+		    </tr>
+           <tr>
+		        <td  align="center">掺加粉煤灰或粒化高炉矿渣粉的混凝土</td>
+		        <td  align="center">0.20+4(<i>F/5+K/7</i>)</td>
+		    </tr>
+		</table>
+      <P>  注:F、K分别为粉煤灰和粒化高炉矿渣粉掺量占凝胶材料总量的百分比。</P>
+   
+   <ol start='2'>
+    <li>氯盐引起混凝土中钢筋发生腐蚀的氯离子含量临界值根据建筑物所处实际环境条件和工程调查资料确定,在无上述可靠资料的情况下按<a href="#B4.5.4-2">表4.5.4-2</a>选取。</li>
+   </ol>
+
+
+
+$$t_{\\mathrm{re}}=t_{\\mathrm{e}}+t_{0}\\tag{4.5.6}$$  
+
+.. raw:: html
+   :file: ./_static/Q467.html
+     
+
+
