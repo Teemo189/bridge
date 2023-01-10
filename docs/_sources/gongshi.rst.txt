@@ -1,0 +1,96 @@
+公式
+==================
+
+.. raw:: html
+    
+    <head>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/3.26.20/antd.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/3.26.20/antd.min.js"></script>
+    </head>
+    <body>
+        <style type="text/css">
+            .formula_p{
+                font-size: 16px;
+                border-bottom: 1px dashed #ccc;
+                padding:10px 0;
+            }
+        </style>
+        <div id="app"></div>
+        <script type="text/babel">  
+            class MessageBox extends React.Component{  
+                
+            render = ()=>{  
+                return ( 
+                    <div style={{width:'90%',margin:'45px auto 0'}}>
+                        <div>
+                            <div className='formula_p' style={{display:'flex'}}>
+                                <div>&tau; = &nbsp;</div>
+                                <div>
+                                    <div style={{fontSize:'16px',marginTop:'5px'}}>
+                                        <div style={{lineHeight:'12px'}}>&sum;&nbsp;sgn (e<sub>j</sub>-e<sub>i</sub>)</div>
+                                        <div style={{fontSize:'10px'}}>i&lt;j</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='formula_p'  style={{display:'flex',alignItems:'center'}}>
+                                <div>w<sub>m</sub> = &nbsp;</div>
+                                <div>
+                                    <div style={{textAlign:'center'}}>a<sub>1</sub></div>
+                                    <div style={{borderTop:'1px solid black',textAlign:'center'}}>
+                                        <div style={{textAlign:'center'}}>a<sub>m</sub></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='formula_p' style={{display:'flex',alignItems:'center'}}>
+                                <div>d<sub>ij</sub>= </div>
+                                <div>
+                                    <span style={{fontSize:'30px'}}>√</span>
+                                    <div style={{borderTop:'1px #999 solid',display:'inline-block',verticalAlign:'top',marginTop:'2px'}}>
+                                        <div style={{display:'flex',alignItems:'center'}}>
+                                            <div style={{display:'flex',alignItems:'center'}}>
+                                                <div style={{fontSize:'24px'}}>( </div>
+                                                <div>
+                                                    <div style={{textAlign:'center'}}>a<sub>j</sub>-a<sub>i</sub></div>
+                                                    <div style={{borderTop:'1px solid black',textAlign:'center'}}>
+                                                        <div style={{textAlign:'center'}}>a<sub>n</sub>-a<sub>1</sub></div>
+                                                    </div>
+                                                </div>
+                                                <div><span style={{fontSize:'24px'}}> )</span><sup>2</sup>+</div>
+                                            </div>
+                                            <div style={{display:'flex',alignItems:'center'}}>
+                                                <div style={{fontSize:'24px'}}>( </div>
+                                                <div>
+                                                    <div style={{textAlign:'center'}}>e<sub>j</sub>-e<sub>i</sub></div>
+                                                    <div style={{borderTop:'1px solid black',textAlign:'center'}}>
+                                                        <div style={{textAlign:'center'}}>max<sub>k</sub>(e<sub>k</sub>)-min<sub>k</sub>(e<sub>k</sub>)</div>
+                                                    </div>
+                                                </div>
+                                                <div><span style={{fontSize:'24px'}}> )</span><sup>2</sup></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='formula_p' style={{display:'flex'}}>
+                                <div>s = </div>
+                                <div>
+                                    <div style={{fontSize:'16px',marginTop:'5px'}}>
+                                        <div>&sum;&nbsp;w<sub>i</sub>w<sub>j</sub>d<sub>ij</sub> &middot; sgn (e<sub>j</sub>-e<sub>i</sub>)</div>
+                                        <div style={{fontSize:'10px'}}>i&lt;j</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                )  
+                }  
+            }
+            ReactDOM.render( <MessageBox/>,document.getElementById('app'))
+        </script>
+    </body>
+
+
