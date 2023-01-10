@@ -32,7 +32,9 @@ source_suffix = ['.rst', '.md']
 extensions = [
     'sphinx.ext.mathjax'
 ]
-
+extensions = [
+    'sphinx_tabs'
+]
 
 extensions = [
     'sphinx_toolbox.collapse',
