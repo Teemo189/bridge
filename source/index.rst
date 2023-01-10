@@ -54,6 +54,19 @@ word、AutoCAD等国外商用软件，检测报告、插图、排版及生成均
     
     kuaisu
     xiangxi
+    model
+    dyzj
+    test1
+    jiben
+    texceshi
+    toolbox
+    test04
+    test04copy
+    111
+    222
+    gongshi
+   
+    
 
 .. toctree::
     :caption: 项目进度
@@ -62,5 +75,6 @@ word、AutoCAD等国外商用软件，检测报告、插图、排版及生成均
     
     nf2021
     nf2022
+
 
 

@@ -6,3 +6,39 @@
 
     xmjd/11月
     xmjd/12月
+
+
+$$t_{e}=t_{s}+\\dfrac{D_{f}-D_{i}}{V}\\tag{5.3.2}$$
+
+.. list-table::  
+   :widths: 20 1 1 120
+   :header-rows: 0
+   
+   * - 式中
+     - :math:`t_{\mathrm{c}}`
+     - ——
+     - 自钢筋开始锈蚀至保护层开裂所经历的时间(a);
+   * - 
+     - :math:`\delta_{\mathrm{cr}}`
+     - ——
+     - 保护层开裂时钢筋临界锈蚀度(:math:`\mathrm{mm}`);
+   * - 
+     - :math:`\gamma_{1}`
+     - ——
+     - 保护层开裂前钢筋平均腐蚀速度(:math:`\mathrm{mm}/a`);
+   * - 
+     - :math:`c`
+     - ——
+     - 混凝土保护层厚度(:math:`\mathrm{mm}`);
+   * - 
+     - :math:`d`
+     - ——
+     - 钢筋原始直径(:math:`\mathrm{mm}`);
+   * - 
+     - :math:`f_{\mathrm{cuk}}`
+     - ——
+     - 混凝土立方体抗压强度标准值(:math:`\mathrm{MPa}`);
+   * - 
+     - :math:`i`
+     - ——
+     - 钢筋的腐蚀电流密度(:math:`\mu\mathrm{cm}^2`);

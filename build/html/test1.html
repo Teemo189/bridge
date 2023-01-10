@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>混凝土结构耐久性检测与评估 &#8212; 简立得®操作手册</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-toolbox-code.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/sphinx-toolbox.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx_toolbox_installation.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/sphinx_toolbox_installation.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="基本规定" href="jiben.html" />
+    <link rel="prev" title="我的学习跟踪" href="dyzj.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">简立得®操作手册</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  操作文档
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="kuaisu.html">
+   快速上手
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="xiangxi.html">
+   详细功能
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model.html">
+   桥梁模型
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dyzj.html">
+   我的学习跟踪
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   混凝土结构耐久性检测与评估
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jiben.html">
+   基本规定
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="texceshi.html">
+   tex测试
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="toolbox.html">
+   toolbox学习
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="test04.html">
+   4. 混凝土结构耐久性检测与评估
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="test04copy.html">
+   5. 钢结构耐久性检测与评估
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="111.html">
+   6. 混凝土结构耐久性检测与评111
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="222.html">
+   8混凝土结构耐久性检测与评估
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gongshi.html">
+   公式
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  项目进度
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="nf2021.html">
+   2021年
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xmjd/11%E6%9C%88.html">
+     11月
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xmjd/12%E6%9C%88.html">
+     12月
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="nf2022.html">
+   2022年
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xmjd/11%E6%9C%88.html">
+     11月
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xmjd/12%E6%9C%88.html">
+     12月
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/test1.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   4.1 腐蚀介质及工程情况的调查
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ph">
+     4.1.1 腐蚀介质调查内容宜包括潮汐、温度、湿度、pH值、水污染情况和其他侵蚀介质等,海水环境混凝土结构腐蚀介质调查内容还应包括海水中氯离子含量。
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     4.1.1 工程情况的调查内容除应包括第3.0.2条规定的内容外，还应包括耐久性检查检测记录。
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   4.5 氯盐引起钢筋锈蚀劣化耐久性评估
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     4.5.1 氯盐引起钢筋锈蚀劣化耐久性评估应包括混凝土结构外观劣化度评估和结构适应年限预测。
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     4.5.2 外观劣化度评估应根据外观检测结果按不同构件种类进行,外观劣化度分级标准应符合表4.5.2的规定。
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>混凝土结构耐久性检测与评估</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   4.1 腐蚀介质及工程情况的调查
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ph">
+     4.1.1 腐蚀介质调查内容宜包括潮汐、温度、湿度、pH值、水污染情况和其他侵蚀介质等,海水环境混凝土结构腐蚀介质调查内容还应包括海水中氯离子含量。
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     4.1.1 工程情况的调查内容除应包括第3.0.2条规定的内容外，还应包括耐久性检查检测记录。
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   4.5 氯盐引起钢筋锈蚀劣化耐久性评估
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     4.5.1 氯盐引起钢筋锈蚀劣化耐久性评估应包括混凝土结构外观劣化度评估和结构适应年限预测。
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     4.5.2 外观劣化度评估应根据外观检测结果按不同构件种类进行,外观劣化度分级标准应符合表4.5.2的规定。
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="id1">
+<h1>混凝土结构耐久性检测与评估<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
+<h2><a href="#id41">4.1</a>腐蚀介质及工程情况的调查</h2><section id="id2">
+<h2>4.1 腐蚀介质及工程情况的调查<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<section id="ph">
+<h3>4.1.1 腐蚀介质调查内容宜包括潮汐、温度、湿度、pH值、水污染情况和其他侵蚀介质等,海水环境混凝土结构腐蚀介质调查内容还应包括海水中氯离子含量。<a class="headerlink" href="#ph" title="此标题的永久链接">#</a></h3>
+</section>
+<section id="id3">
+<h3>4.1.1 工程情况的调查内容除应包括第3.0.2条规定的内容外，还应包括耐久性检查检测记录。<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h3>
+</section>
+</section>
+<section id="id4">
+<h2>4.5 氯盐引起钢筋锈蚀劣化耐久性评估<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
+<section id="id5">
+<h3>4.5.1 氯盐引起钢筋锈蚀劣化耐久性评估应包括混凝土结构外观劣化度评估和结构适应年限预测。<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h3>
+</section>
+<section id="id6">
+<h3>4.5.2 外观劣化度评估应根据外观检测结果按不同构件种类进行,外观劣化度分级标准应符合表4.5.2的规定。<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h3>
+<p>4.5.4 氯盐引起混凝土构件劣化进程应分为钢筋开始锈蚀、保护层锈胀开裂和功能明显退化等阶段，各阶段时间的确定应符合下列规定。</p>
+<p style="font-family:新罗马"><a href="#id312">3.1.2</a>氯离子侵蚀系数</p>
+<p>氯离子侵蚀系数(mm/<math xmlns='http://www.w3.org/1998/Math/MathML'> <msqrt> <mi> a </mi> </msqrt> </math>);</p><div class="math notranslate nohighlight">
+\[\]</div>
+<p>$$t_{i}=({\frac{C}{k_{C1}}})^{2}\tag{4.5.4-1}$$</p>
+<p>$$k_{C1}=2\sqrt{D}erf^{-1}(1-\frac{C_{t}}{C_{s}\cdot\gamma})\tag{4.5.4-2}$$</p>
+<table class="table">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 1%" />
+<col style="width: 1%" />
+<col style="width: 89%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>式中</p></td>
+<td><p><span class="math notranslate nohighlight">\(t_{i}\)</span></p></td>
+<td><p>——</p></td>
+<td><p>从混凝土浇筑到钢筋开始锈蚀所经历的时间(a);</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><span class="math notranslate nohighlight">\(C\)</span></p></td>
+<td><p>——</p></td>
+<td><p>混凝土保护层厚度(mm);</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><span class="math notranslate nohighlight">\(K_{C1}\)</span></p></td>
+<td><p>——</p></td>
+<td><p>氯离子侵蚀系数(mm:math:<cite>sqrt{a}</cite>);</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><span class="math notranslate nohighlight">\(D\)</span></p></td>
+<td><p>——</p></td>
+<td><p>混凝土有效扩散系数(mm:math:<cite>^{2}</cite>/a);</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><span class="math notranslate nohighlight">\(erf\)</span></p></td>
+<td><p>——</p></td>
+<td><p>误差函数;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><span class="math notranslate nohighlight">\(C_{t}\)</span></p></td>
+<td><p>——</p></td>
+<td><p>引起混凝土中钢筋发生腐蚀的氯离子含量临界值(%),以占胶凝材料质量百分比计;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><span class="math notranslate nohighlight">\(C_{s}\)</span></p></td>
+<td><p>——</p></td>
+<td><p>混凝土表面氯离子含量(%),以占胶凝材料质量百分比计;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><span class="math notranslate nohighlight">\(\gamma\)</span></p></td>
+<td><p>——</p></td>
+<td><p>氯离子双向渗透系数,角部区取1.2,非角部区取1.0.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="dyzj.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">我的学习跟踪</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="jiben.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">基本规定</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+      &copy; Copyright 哈尔滨工业大学重庆研究院.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
