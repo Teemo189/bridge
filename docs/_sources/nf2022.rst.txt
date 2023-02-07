@@ -180,76 +180,80 @@
          <caption style="caption-side:top;text-align: center;color:black" ><b style="text-align:center"> <div id="B2.2.2-1">表2.2.2-2 公路工程的结构设计工作年限（年）</b></caption>	
               
 		    <tr>
-		        <td align="left"colspan="3">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;公路等级<br/>结构类别</td>
+		    <td align="left"colspan="3">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;公路等级<br/>结构类别</td>
             <!-- <td></td> -->
             <!-- <td></td> -->
-		        <td width=150px align="center">高速公路、<br/>一级公路&emsp;</td>
-            <td width=100px align="center">二级<br/>公路</td>
-            <td width=100px align="center">三级<br/>公路</td>
-            <td width=100px align="center">四级<br/>公路</td>
+		    <td width=15% align="center">高速公路、<br/>一级公路&emsp;</td>
+            <td width=10% align="center">二级<br/>公路</td>
+            <td width=10% align="center">三级<br/>公路</td>
+            <td width=10% align="center">四级<br/>公路</td>
 		    </tr>
-		    <tr>
-		        <td width=60px rowspan="2"align="center" id="dhbg">路面</td>
+		    
+            <tr>
+		    <td width=6% rowspan="2"align="center" id="dhbg">路面</td>
             <td align="center"colspan="2">沥青混凝土路面</td>
-            <!-- <td></td> -->
-		        <td width=150px align="center">15</td>
-            <td width=100px align="center">12</td>
-            <td width=100px align="center">10</td>
-            <td width=100px align="center">8</td>
+           
+		    <td width=15% align="center">15</td>
+            <td width=10% align="center">12</td>
+            <td width=10% align="center">10</td>
+            <td width=10% align="center">8</td>
 		    </tr>
-		    <tr>
-		        <!-- <td></td> -->
+		    
+            <tr>
+		       
             <td align="center"colspan="2">水泥混凝土路面</td>
-            <!-- <td></td> -->
-		        <td width=150px align="center">30</td>
-            <td width=100px align="center">20</td>
-            <td width=100px align="center">15</td>
-            <td width=100px align="center">10</td>
+            
+		    <td width=15% align="center">30</td>
+            <td width=10% align="center">20</td>
+            <td width=10% align="center">15</td>
+            <td width=10% align="center">10</td>
 		    </tr>
-       	<tr>
-		        <td width=60px rowspan="5"align="center" id="dhbg">桥涵</td>
-            <td width=150px rowspan="3"align="center" id="dhbg">主体结构</td>
-            <td width=200px align="center" id="dhbg">特大桥、大桥</td>
-            <td width=100px align="center">100</td>
-            <td width=100px align="center">100</td>
-            <td width=100px align="center">100</td>
-            <td width=150px align="center">100</td>
+
+       	    <tr>
+		    <td width=6% rowspan="5"align="center" id="dhbg">桥涵</td>
+            <td width=15% rowspan="3"align="center" id="dhbg">主体结构</td>
+            <td width=20% align="center" id="dhbg">特大桥、大桥</td>
+            <td width=10% align="center">100</td>
+            <td width=10% align="center">100</td>
+            <td width=10% align="center">100</td>
+            <td width=15% align="center">100</td>
 		    </tr> 
+
         <tr>
-		        <!-- <td></td> -->
+		       
             <!-- <td></td> -->
-            <td width=200px align="center" id="dhbg">中桥</td>
-            <td width=100px align="center">100</td>
-            <td width=100px align="center">50</td>
-            <td width=100px align="center">50</td>
-            <td width=150px align="center">50</td>
+            <td width=20% align="center" id="dhbg">中桥</td>
+            <td width=10% align="center">100</td>
+            <td width=10% align="center">50</td>
+            <td width=10% align="center">50</td>
+            <td width=15% align="center">50</td>
 		    </tr>
          <tr>
 		        <!-- <td></td> -->
             <!-- <td></td> -->
-            <td width=200px align="center" id="dhbg">小桥</td>
-            <td width=100px align="center">50</td>
-            <td width=100px align="center">30</td>
-            <td width=100px align="center">30</td>
-            <td width=150px align="center">30</td>
+            <td width=20% align="center" id="dhbg">小桥</td>
+            <td width=10% align="center">50</td>
+            <td width=10% align="center">30</td>
+            <td width=10% align="center">30</td>
+            <td width=15% align="center">30</td>
 		    </tr>
         <tr>
 		       <!-- <td></td> -->
-            <td width=150px rowspan="2"align="center" id="dhbg">可更换部件</td>
-            <td width=200px align="center" id="dhbg">斜拉桥、吊索、系杆等</td>
-            <td width=100px align="center">20</td>
-            <td width=100px align="center">20</td>
-            <td width=100px align="center">20</td>
-            <td width=150px align="center">20</td>
+            <td width=15% rowspan="2"align="center" id="dhbg">可更换部件</td>
+            <td width=20% align="center" id="dhbg">斜拉桥、吊索、系杆等</td>
+            <td width=10% align="center">20</td>
+            <td width=10% align="center">20</td>
+            <td width=10% align="center">20</td>
+            <td width=15% align="center">20</td>
 		    </tr> 
         <tr>
 		       <!-- <td></td> -->
             <!-- <td></td> -->
-            <td width=200px align="center" id="dhbg">栏杆、伸缩装置、支座等</td>
-            <td width=100px align="center">15</td>
-            <td width=100px align="center">15</td>
-            <td width=100px align="center">15</td>
-            <td width=150px align="center">15</td>
+            <td width=20% align="center" id="dhbg">栏杆、伸缩装置、支座等</td>
+            <td width=10% align="center">15</td>
+            <td width=10% align="center">15</td>
+            <td width=10% align="center">15</td>
+            <td width=15% align="center">15</td>
 		    </tr>
 		</table>
     <p></p>
