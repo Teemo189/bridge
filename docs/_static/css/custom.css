@@ -38,7 +38,7 @@
 }
 .wy-nav-content{
     background-color:#f0ffff;
-    max-width: 2000px;
+    min-width: 1000px;
 }
 
 
