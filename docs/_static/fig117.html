@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+     <head>
+         <link rel="stylesheet" type="text/css" href="../_static/viewer.min.css" />
+         <style type="text/css">
+             * {
+                 margin: 0;
+                 padding: 0;
+             }
+             img{
+                 border: 0 solid #fbfdfd;
+             }
+             #test{
+                color: dimgray;
+                text-align: center;
+             }
+             .box03{
+                width: 700px;
+                height: 200px;
+                position: sticky;
+                display: flex;
+                justify-content: space-between;
+             }
+             .box3{
+                width: 230px;
+                height: 145px;
+                box-sizing: border-box;
+                z-index: 9999;   
+             }
+             .box4{
+                width: 280px;
+                height: 145px;
+                box-sizing: border-box;
+                z-index: 9999;
+             }
+             .box5{
+                width: 140px;
+                height: 145px;
+                box-sizing: border-box;
+                z-index: 9999;
+             }
+             #title3{
+                height:140px;
+                width:100%;
+                position: absolute;
+                margin-top:200px;
+                margin-left:45%;   
+             }
+         </style>
+     </head>
+     <body>
+         <div>
+            <div class="box03">
+               <p class="box3" style="text-align:center"><img id="image17a" src="../_static/fig/1-1-17a.jpg" alt="Picture">c）伸臂梁桥 </p>
+               <p class="box4" style="text-align:center"><img id="image17b" src="../_static/fig/1-1-17b.jpg" alt="Picture">d）贯木拱桥 </p>
+               <p class="box5" style="text-align:center"><img id="image17c" src="../_static/fig/1-1-17c.jpg" alt="Picture">e）藤索桥</p>
+               <p id="title3" style="font-family:times new roma">图1-1-17  涵洞示例</p>
+               </div>
+         </div>
+         <script src="../_static/viewer.min.js" type="text/javascript" charset="utf-8"></script>
+         <script type="text/javascript">
+             var viewer = new Viewer(document.getElementById('image17a'));
+             var viewer = new Viewer(document.getElementById('image17b'));
+             var viewer = new Viewer(document.getElementById('image17c'));
+         </script>
+     </body>
+</html>

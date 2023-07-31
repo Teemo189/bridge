@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+     <head>
+         <link rel="stylesheet" type="text/css" href="./_static/viewer.min.css" />
+         <style type="text/css">
+             * {
+                 margin: 0;
+                 padding: 0;
+             }
+             img{
+                 border: 0 solid #fbfdfd;
+             }
+             #test{
+                color: dimgray;
+                text-align: center;
+             }
+             .box02{
+                width: 700px;
+                height: 280px;
+                position: sticky;
+                display: flex;
+                justify-content: space-between;
+             }
+             .box1{
+                width: 340px;
+                height: 300px;
+                box-sizing: border-box;
+                
+                z-index: 9999;
+             }
+             .box2{
+                width: 340px;
+                height: 300px;
+                box-sizing: border-box;
+                
+                z-index: 9999;
+             }
+             #title2{
+                height:250px;
+                width:100%;
+                position: absolute;
+                margin-top:240px;
+                margin-left:37%;
+             }
+         </style>
+     </head>
+     <body>
+         <div>
+            <div class="box02">
+            <p class="box1" style="text-align:center"><img id="image1" src="./_static/pic1.jpg" alt="Picture">标题aaa</p>
+            <p class="box2" style="text-align:center"><img id="image2" src="./_static/pic1.jpg" alt="Picture">标题bbb</p>
+            <p id="title2">图1 活动问价噢切换222图</p>
+            </div>
+         </div>
+         <script src="./_static/viewer.min.js" type="text/javascript" charset="utf-8"></script>
+         <script type="text/javascript">
+             var viewer = new Viewer(document.getElementById('image1'));
+             var viewer = new Viewer(document.getElementById('image2'));
+         </script>
+     </body>
+</html>

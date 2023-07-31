@@ -180,7 +180,7 @@
          <caption style="caption-side:top;text-align: center;color:black" ><b style="text-align:center"> <div id="B2.2.2-1">表2.2.2-2 公路工程的结构设计工作年限（年）</b></caption>	
               
 		    <tr>
-		    <td align="left"colspan="3">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;公路等级<br/>结构类别</td>
+		    <td align="left"colspan="3">公路等级<br/>结构类别</td>
             <!-- <td></td> -->
             <!-- <td></td> -->
 		    <td width=15% align="center">高速公路、<br/>一级公路&emsp;</td>
@@ -303,7 +303,7 @@
  <li>基本组合：</li>
  </ol>
 
-$$\\sum_{i\\geqslant 1}\\,\\gamma_{\\mathrm{Gi}}\\, G_{\\mathrm{ik}}+\\gamma_{\\mathrm{P}}P+\\gamma_{\\mathrm{Q1}}\\,\\gamma_{\\mathrm{L1}}\\, Q_{\\mathrm{1K}}+\\sum_{j> 1}\\,\\gamma_{\\mathrm{Qj}}\\,\\psi_{\\mathrm{cj}}\\,\\gamma_{\\mathrm{Lj}}\\, Q_{\\mathrm{jk}}\\tag{2.4.6-1}$$
+$$\\small\\sum_{i\\geqslant 1}\\,\\gamma_{\\mathrm{Gi}}\\, G_{\\mathrm{ik}}+\\gamma_{\\mathrm{P}}P+\\gamma_{\\mathrm{Q1}}\\,\\gamma_{\\mathrm{L1}}\\, Q_{\\mathrm{1K}}+\\sum_{j> 1}\\,\\gamma_{\\mathrm{Qj}}\\,\\psi_{\\mathrm{cj}}\\,\\gamma_{\\mathrm{Lj}}\\, Q_{\\mathrm{jk}}\\tag{2.4.6-1}$$
 
 .. raw:: html
 
@@ -311,39 +311,8 @@ $$\\sum_{i\\geqslant 1}\\,\\gamma_{\\mathrm{Gi}}\\, G_{\\mathrm{ik}}+\\gamma_{\\
  <li>偶然组合：</li>
  </ol>
 
-$$\\sum_{i\\geqslant 1}\\,\\gamma_{\\mathrm{Gi}}\\, G_{\\mathrm{ik}}+\\gamma_{\\mathrm{P}}P+\\gamma_{\\mathrm{Q1}}\\,\\gamma_{\\mathrm{L1}}\\, Q_{\\mathrm{1K}}+\\sum_{j> 1}\\,\\gamma_{\\mathrm{Qj}}\\,\\psi_{\\mathrm{cj}}\\,\\gamma_{\\mathrm{Lj}}\\, Q_{\\mathrm{jk}}\\tag{2.4.6-2}$$
+$$\\small\\sum_{i\\geqslant 1}\\,\\gamma_{\\mathrm{Gi}}\\, G_{\\mathrm{ik}}+\\gamma_{\\mathrm{P}}P+\\gamma_{\\mathrm{Q1}}\\,\\gamma_{\\mathrm{L1}}\\, Q_{\\mathrm{1K}}+\\sum_{j> 1}\\,\\gamma_{\\mathrm{Qj}}\\,\\psi_{\\mathrm{cj}}\\,\\gamma_{\\mathrm{Lj}}\\, Q_{\\mathrm{jk}}\\tag{2.4.6-2}$$
 
-.. raw:: html
-
- <ol start="3">
- <li>地震组合：应符合结构抗震设计的规定；</li>
-
- </ol>
-
-.. raw:: html
-
- <ol start="4">
- <li>标准组合：</li>
-
- </ol>
-
-$$\\sum_{i\\geqslant 1}\\,\\gamma_{\\mathrm{Gi}}\\, G_{\\mathrm{ik}}+\\gamma_{\\mathrm{P}}P+\\gamma_{\\mathrm{Q1}}\\,\\gamma_{\\mathrm{L1}}\\, Q_{\\mathrm{1K}}+\\sum_{j> 1}\\,\\gamma_{\\mathrm{Qj}}\\,\\psi_{\\mathrm{cj}}\\,\\gamma_{\\mathrm{Lj}}\\, Q_{\\mathrm{jk}}\\tag{2.4.6-3}$$
-
-.. raw:: html
-
- <ol start="5">
- <li>频遇组合：</li>
- </ol>
-
-$$\\sum_{i\\geqslant 1}\\,\\gamma_{\\mathrm{Gi}}\\, G_{\\mathrm{ik}}+\\gamma_{\\mathrm{P}}P+\\gamma_{\\mathrm{Q1}}\\,\\gamma_{\\mathrm{L1}}\\, Q_{\\mathrm{1K}}+\\sum_{j> 1}\\,\\gamma_{\\mathrm{Qj}}\\,\\psi_{\\mathrm{cj}}\\,\\gamma_{\\mathrm{Lj}}\\, Q_{\\mathrm{jk}}\\tag{2.4.6-4}$$
-
-.. raw:: html
-
- <ol start="6">
- <li>准永久组合：</li>
- </ol>
-
-$$\\sum_{i\\geqslant 1}\\,\\gamma_{\\mathrm{Gi}}\\, G_{\\mathrm{ik}}+\\gamma_{\\mathrm{P}}P+\\gamma_{\\mathrm{Q1}}\\,\\gamma_{\\mathrm{L1}}\\, Q_{\\mathrm{1K}}+\\sum_{j> 1}\\,\\gamma_{\\mathrm{Qj}}\\,\\psi_{\\mathrm{cj}}\\,\\gamma_{\\mathrm{Lj}}\\, Q_{\\mathrm{jk}}\\tag{2.4.6-5}$$
 
 .. raw:: html
 
@@ -354,7 +323,7 @@ $$\\sum_{i\\geqslant 1}\\,\\gamma_{\\mathrm{Gi}}\\, G_{\\mathrm{ik}}+\\gamma_{\\
  <p><a href="#id2.4.7"> 2.4.7</a> <span id="id2.4.7"> 作用组合的效应设计值，应将所考虑的各种作用同时加载于结构之后，再通过分析计算确定。</span></p>
  <p><a href="#id2.4.8"> 2.4.8</a> <span id="id2.4.8">  当作用组合的效应设计值简化为单个作用效应的组合时，作用与作用效应应满足线性关系。</span></p>
 
-
+$$\\sum_{i\\geqslant 1}\\,\\gamma_{\\mathrm{Gi}}\\, G_{\\mathrm{ik}}+\\gamma_{\\mathrm{P}}P+\\gamma_{\\mathrm{Q1}}\\,\\gamma_{\\mathrm{L1}}\\, Q_{\\mathrm{1K}}+\\sum_{j> 1}\\,\\gamma_{\\mathrm{Qj}}\\,\\psi_{\\mathrm{cj}}\\,\\gamma_{\\mathrm{Lj}}\\, Q_{\\mathrm{jk}}\\tag{2.4.6-2}$$
 
 2.5 材料和岩土的性能及结构几何参数
 -------------------------------------

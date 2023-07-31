@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+     <head>
+         <link rel="stylesheet" type="text/css" href="./_static/viewer.min.css" />
+         <style type="text/css">
+             * {
+                 margin: 0;
+                 padding: 0;
+             }
+             img{
+                 border: 0 solid #fbfdfd;
+             }
+             #test{
+                color: dimgray;
+                text-align: center;
+             }
+             .box04{
+                width: 700px;
+                height: 140px;
+                position: sticky;
+                display: flex;
+                justify-content: space-between;
+             }
+             .box6{
+                width: 170px;
+                height: 105px;
+                box-sizing: border-box;
+                z-index: 9999;   
+             }
+             .box7{
+                width: 170px;
+                height: 105px;
+                box-sizing: border-box;
+                z-index: 9999;
+             }
+             .box8{
+                width: 170px;
+                height: 105px;
+                box-sizing: border-box;
+                z-index: 9999;
+             }
+             .box9{
+                width: 170px;
+                height: 105px;
+                box-sizing: border-box;
+                z-index: 9999;
+             }
+             #title4{
+                height:50px;
+                width:100%;
+                position: absolute;
+                margin-top:130px;
+                margin-left:25%;   
+             }
+         </style>
+     </head>
+     <body>
+         <div>
+            <div class="box04">
+            <p class="box6" style="text-align:center"><img id="image66" src="./_static/pic1.jpg" alt="Picture">标题aaa</p>
+            <p class="box7" style="text-align:center"><img id="image77" src="./_static/pic1.jpg" alt="Picture">标题bbb</p>
+            <p class="box8" style="text-align:center"><img id="image88" src="./_static/pic1.jpg" alt="Picture">标题ccc</p>
+            <p class="box9" style="text-align:center"><img id="image99" src="./_static/pic1.jpg" alt="Picture">标题ddd</p>
+            <p id="title4">图1 活动问价噢切换eryerhterhrthrhehtre222图</p>
+            </div>
+         </div>
+         <script src="./_static/viewer.min.js" type="text/javascript" charset="utf-8"></script>
+         <script type="text/javascript">
+             var viewer = new Viewer(document.getElementById('image66'));
+             var viewer = new Viewer(document.getElementById('image77'));
+             var viewer = new Viewer(document.getElementById('image88'));
+             var viewer = new Viewer(document.getElementById('image99'));
+             
+         </script>
+     </body>
+</html>

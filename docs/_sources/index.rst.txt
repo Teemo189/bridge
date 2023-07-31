@@ -40,9 +40,13 @@ word、AutoCAD等国外商用软件，检测报告、插图、排版及生成均
 
 .. raw:: html
 
+   <div>
    <video width="720" height="400" controls>
       <source src="./_static/aaa.mp4" type="video/mp4">
    </video>
+   <p style="text-align:center">标题bbb</p>
+   </div>
+
 
 
 
@@ -54,7 +58,8 @@ word、AutoCAD等国外商用软件，检测报告、插图、排版及生成均
     
     kuaisu
     xiangxi
-    model
+    model1
+    model2
     dyzj
     test1
     jiben
@@ -78,6 +83,8 @@ word、AutoCAD等国外商用软件，检测报告、插图、排版及生成均
     
     nf2021
     nf2022
+    01
+    02
 
 
 

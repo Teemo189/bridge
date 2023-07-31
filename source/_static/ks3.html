@@ -1,11 +1,6 @@
 <!DOCTYPE html>
- <html lang="zh">
- 
+<html lang="zh">
      <head>
-         <meta charset="UTF-8" />
-         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-         <title>点击查看大图</title>
          <link rel="stylesheet" type="text/css" href="./_static/viewer.min.css" />
          <style type="text/css">
              * {
@@ -19,18 +14,54 @@
                 color: dimgray;
                 text-align: center;
              }
+             .box03{
+                width: 700px;
+                height: 200px;
+                position: sticky;
+                display: flex;
+                justify-content: space-between;
+             }
+             .box3{
+                width: 230px;
+                height: 145px;
+                box-sizing: border-box;
+                z-index: 9999;   
+             }
+             .box4{
+                width: 230px;
+                height: 145px;
+                box-sizing: border-box;
+                z-index: 9999;
+             }
+             .box5{
+                width: 230px;
+                height: 145px;
+                box-sizing: border-box;
+                z-index: 9999;
+             }
+             #title3{
+                height:25px;
+                width:100%;
+                position: absolute;
+                margin-top:160px;
+                margin-left:25%;   
+             }
          </style>
      </head>
- 
      <body>
          <div>
-             <img id="image3" src="./_static/pic3.jpg" alt="Picture">
-             <p id="test">图3 项目管理视图</p> 
+            <div class="box03">
+            <p class="box3" style="text-align:center"><img id="image777" src="./_static/pic1.jpg" alt="Picture">标题aaa</p>
+            <p class="box4" style="text-align:center"><img id="image888" src="./_static/pic1.jpg" alt="Picture">标题bbb</p>
+            <p class="box5" style="text-align:center"><img id="image999" src="./_static/pic1.jpg" alt="Picture">标题ccc</p>
+            <p id="title3">图1 活动问价噢切换eryerhterhrthrhehtre222图</p>
+            </div>
          </div>
          <script src="./_static/viewer.min.js" type="text/javascript" charset="utf-8"></script>
          <script type="text/javascript">
-             var viewer = new Viewer(document.getElementById('image3'));
+             var viewer = new Viewer(document.getElementById('image777'));
+             var viewer = new Viewer(document.getElementById('image888'));
+             var viewer = new Viewer(document.getElementById('image999'));
          </script>
      </body>
- 
- </html>
+</html>

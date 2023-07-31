@@ -1,0 +1,15 @@
+
+第四节  桥梁设计方案比选
+---------------------------------
+
+.. raw:: html
+
+ <h3 id="test111"> 第四节  桥梁设计方案比选</h3>
+
+  <p style="text-indent:2em;text-align:justify;text-indent:2em">桥梁设计方案比选主要包括桥位方案比选和桥型方案比选。桥位方案比选宜在工程可行性研究阶段完成，桥型方案比选应在初步设计阶段完成。 </p>
+  <p style="text-indent:2em;text-align:justify;text-indent:2em"> </p>
+  <p style="text-indent:2em;text-align:justify;text-indent:2em"> </p>
+  <p style="text-indent:2em;text-align:justify;text-indent:2em"> </p>
+  <p style="text-indent:2em;text-align:justify;text-indent:2em"> </p>
+  <p style="text-indent:2em;text-align:justify;text-indent:2em"> </p>
+  <p style="text-indent:2em;text-align:justify;text-indent:2em"> </p>

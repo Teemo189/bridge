@@ -1,0 +1,5778 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>表格排序</title>
+    <script src="https://code.jquery.com/jquery-1.3.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#filterName").keyup(function(){
+                $("table tbody tr")
+                .hide()
+                .filter(":contains('"+( $(this).val() )+"')")
+                .show();
+            })
+        })
+    </script>
+
+    <script language="javascript" type="text/javascript">
+        $(function(){
+            $('th').click(function(){
+                var date1=(new Date()).getTime()
+                var dataType=$(this).attr('dataType');
+                var index=$('th').index(this)+1;
+                var arr=[];
+                var row=$('tbody tr');
+                $.each(row,function(i){ arr[i]=row[i] 
+            })
+            if($(this).hasClass('select')){
+                arr.reverse()
+            }
+            else {
+                arr.sort(sortStr(index,dataType))
+                $('.select').removeClass();
+                $('td:nth-child('+index+')').addClass('select');
+                $(this).addClass('select')
+            }
+            var fragment=document.createDocumentFragment()
+            $.each(arr,function(i){
+            fragment.appendChild(arr[i])
+            })
+            $('tbody').append(fragment)
+            var date2=(new Date()).getTime()
+            $('th span').text(date2-date1)
+            })
+        })
+
+        function sortStr(index,dataType){
+            return function(a,b){
+            var aText=$(a).find('td:nth-child('+index+')').text();
+            var bText=$(b).find('td:nth-child('+index+')').text();
+            if(dataType!='roomType'){
+            aText=Parse(aText,dataType)
+            bText=Parse(bText,dataType)
+            return aText>bText?-1:bText>aText?1:0;
+            }
+            else return aText.localeCompare(bText)
+            }
+        }
+
+        function Parse(data,dataType){
+            switch(dataType){
+            case 'num':
+            return parseFloat(data)||0
+            case 'date':
+            return Date.parse(data)||0
+            default :
+            return splitStr(data)
+            }
+        }
+
+        function splitStr(data){
+            var re=/^[\$a-zA-z\u4e00-\u9fa5 ]*(.*?)[a-zA-z\u4e00-\u9fa5 ]*$/
+            data=data.replace(re,'$1')
+            return parseFloat(data)
+        }
+</script>
+
+<style type="text/css">
+
+    table {
+        text-align:center;
+        border:1px #ccc solid;
+        border-collapse:collapse;
+        width:700px;
+        font-size:12px;
+        font-family:Arial, Helvetica, sans-serif;
+        color:#666;
+    }
+    tr {
+    border-bottom:1px #ccc solid;
+    }
+    td {
+    padding:.3em 0 .3em 0;
+    }
+    th {
+        cursor:pointer;
+        background:url(room-bg.gif) 0 -13px repeat-x;
+        height:30px;
+        color:#009;
+    }
+    td.select {
+        color:#000;
+    }
+    th.select {
+        background-image:none;
+        background-color:#C4D5D9;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div><br>筛选<input id="filterName" /><br></div>
+
+<table id="biaoge" style="font-family:times new roman">
+    <caption style="caption-side:top;text-align: center;color:black" ><b style="text-align:center"> <div id="#BE.5">表E.5 全国各城市的雪压、风压和基本气温</b></caption>	    
+		<thead>
+    <tr>
+		   <th width="50px"  align="center" id="bgcz" rowspan="2">省市名</td> 
+       <th width="160px" align="center" id="bgcz" rowspan="2">城市名</td>
+       <th width="40px"  align="center" id="bgcz" rowspan="2">海拔高度(m)</td>
+       <th width="150px" align="center" id="bgcz" colspan="3">风压(kN/㎡)</td>
+       <th width="150px" align="center" id="bgcz" colspan="3">雪压(kN/㎡)</td>
+       <th width="100px" align="center" colspan="2" id="bgcz">基本气温（℃）</td>
+       <th width="50px" align="center" id="bgcz" rowspan="2">雪荷载准永久值系数分区</td>
+		</tr>
+    <tr>
+		   <th width="50px" align="center" id="bgcz">R=10</td> 
+       <th width="50px" align="center" id="bgcz">R=50</td>
+       <th width="50px" align="center" id="bgcz">R=100</td>
+       <th width="50px" align="center" id="bgcz">R=10</td> 
+       <th width="50px" align="center" id="bgcz">R=50</td>
+       <th width="50px" align="center" id="bgcz">R=100</td>
+       <th width="50px" align="center" id="bgcz">最低</td> 
+       <th width="50px" align="center" id="bgcz">最高</td>
+		</tr>
+    </thead>
+    <tbody>
+    <tr>
+		   <td align="center">北京</td>
+       <td align="center">北京市</td>
+       <td align="center">54.0</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-13</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="1" id="bgcz">天津</td>
+       <td align="center">天津市</td>
+       <td align="center">3.3</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-12</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" rowspan="1" id="bgcz">天津</td>
+       <td align="center">塘沽</td>
+       <td align="center">3.2</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-12</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center">上海</td>
+       <td align="center">上海市</td>
+       <td align="center">2.8</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.10</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-4</td>
+       <td align="center">36</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="6" id="bgcz">重庆</td>
+       <td align="center">重庆市</td>
+       <td align="center">259.1</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">1</td>
+       <td align="center">37</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center">奉节</td>
+       <td align="center">607.3</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-1</td>
+       <td align="center">35</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center">梁平</td>
+       <td align="center">454.6</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-1</td>
+       <td align="center">36</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center">万州</td>
+       <td align="center">186.7</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0</td>
+       <td align="center">38</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center">涪陵</td>
+       <td align="center">273.5</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">1</td>
+       <td align="center">37</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center">金佛山</td>
+       <td align="center">1905.9</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">-10</td>
+       <td align="center">25</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="19" id="bgcz">河北</td>
+       <td align="center">石家庄市</td>
+       <td align="center">80.5</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-11</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">蔚县</td>
+       <td align="center">909.5</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-24</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">邢台市</td>
+       <td align="center">76.8</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-10</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">丰宁</td>
+       <td align="center">659.7</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-22</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">围场</td>
+       <td align="center">842.8</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-23</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">张家口市</td>
+       <td align="center">724.2</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-18</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">怀来</td>
+       <td align="center">536.8</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-17</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">承德市</td>
+       <td align="center">377.2</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-19</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">遵化</td>
+       <td align="center">54.9</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">-18</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">青龙</td>
+       <td align="center">227.2</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-19</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+
+    <tr>
+       <td align="center">秦皇岛市</td>
+       <td align="center">2.1</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-15</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">霸县</td>
+       <td align="center">9.0</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-14</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">唐山市</td>
+       <td align="center">27.8</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-15</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">乐亭</td>
+       <td align="center">10.5</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-16</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">保定市</td>
+       <td align="center">17.2</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-12</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">饶阳</td>
+       <td align="center">18.9</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-14</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">沧州市</td>
+       <td align="center">9.6</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">黄骅</td>
+       <td align="center">6.6</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-13</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">南宫市</td>
+       <td align="center">27.4</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-13</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="16" id="bgcz">山西</td>
+       <td align="center">太原市</td>
+       <td align="center">778.3</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-16</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">右玉</td>
+       <td align="center">1345.8</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-29</td>
+       <td align="center">31</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">大同市</td>
+       <td align="center">1067.2</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-22</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">河曲</td>
+       <td align="center">861.5</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-24</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">五寨</td>
+       <td align="center">1401.0</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-25</td>
+       <td align="center">31</td>
+       <td align="center">Ⅱ</td>
+		</tr><tr>
+       <td align="center">兴县</td>
+       <td align="center">1012.6</td>
+       <td align="center">0.25</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-19</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">原平</td>
+       <td align="center">828.2</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-19</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">离石</td>
+       <td align="center">950.8</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-19</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">阳泉市</td>
+       <td align="center">741.9</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-13</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">榆社</td>
+       <td align="center">1041.4</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-17</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">隰县</td>
+       <td align="center">1052.7</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-16</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">介休</td>
+       <td align="center">743.9</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-15</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">临汾市</td>
+       <td align="center">449.5</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-14</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">长治县</td>
+       <td align="center">991.8</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-15</td>
+       <td align="center">35</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center">运城市</td>
+       <td align="center">376.0</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-11</td>
+       <td align="center">38</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center">阳城</td>
+       <td align="center">659.5</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-12</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="49" id="bgcz">内蒙古</td>
+       <td align="center" id="bgcz">呼和浩特市</td>
+       <td align="center">1063.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">额右旗拉布达林</td>
+       <td align="center">581.4</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">牙克石市图里河</td>
+       <td align="center">732.6</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">-42</td>
+       <td align="center">28</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">满洲里市</td>
+       <td align="center">661.7</td>
+       <td align="center">0.50</td>
+       <td align="center">0.65</td>
+       <td align="center">0.70</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-35</td>
+       <td align="center">30</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">海拉尔市</td>
+       <td align="center">610.2</td>
+       <td align="center">0.45</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-38</td>
+       <td align="center">30</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">鄂伦春小二沟</td>
+       <td align="center">286.1</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">-40</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">新巴尔虎右旗</td>
+       <td align="center">554.2</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.65</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-32</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">新巴尔虎左旗<br>阿木古朗</td>
+       <td align="center" id="bgcz">642.0</td>
+       <td align="center" id="bgcz">0.40</td>
+       <td align="center" id="bgcz">0.55</td>
+       <td align="center" id="bgcz">0.60</td>
+       <td align="center" id="bgcz">0.25</td>
+       <td align="center" id="bgcz">0.35</td>
+       <td align="center" id="bgcz">0.40</td>
+       <td align="center" id="bgcz">-34</td>
+       <td align="center" id="bgcz">31</td>
+       <td align="center" id="bgcz">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">牙克石市博克图</td>
+       <td align="center">739.7</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">-31</td>
+       <td align="center">28</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">扎兰屯市</td>
+       <td align="center">306.5</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">-28</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">科右翼前旗阿尔山</td>
+       <td align="center">1027.4</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.45</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">-37</td>
+       <td align="center">27</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+
+    <tr>
+       <td align="center" id="bgcz">科右翼前旗索伦</td>
+       <td align="center">501.8</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-30</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">乌兰浩特市</td>
+       <td align="center">274.7</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-27</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">东乌珠穆沁旗</td>
+       <td align="center">838.7</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-33</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">额济纳旗</td>
+       <td align="center">940.5</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">-23</td>
+       <td align="center">39</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">额济纳旗拐子湖</td>
+       <td align="center">960.0</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.10</td>
+       <td align="center">-23</td>
+       <td align="center">39</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">阿左旗巴彦毛道</td>
+       <td align="center">1328.1</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">-23</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">阿拉善右旗</td>
+       <td align="center">1510.1</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.10</td>
+       <td align="center">-20</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">二连浩特市</td>
+       <td align="center">964.7</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.70</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-30</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">那仁宝力格</td>
+       <td align="center">1181.6</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-33</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">达茂旗满都拉</td>
+       <td align="center">1225.2</td>
+       <td align="center">0.50</td>
+       <td align="center">0.75</td>
+       <td align="center">0.85</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-25</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">阿巴嘎旗</td>
+       <td align="center">1126.1</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-33</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">苏尼特左旗</td>
+       <td align="center">1111.4</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-32</td>
+       <td align="center">33</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">乌拉特后旗海力素</td>
+       <td align="center">1509.6</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">-25</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">苏尼特右旗朱日和</td>
+       <td align="center">1150.8</td>
+       <td align="center">0.50</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-26</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">乌拉特中旗海流图</td>
+       <td align="center">1288.0</td>
+       <td align="center">0.45</td>
+       <td align="center">0.60</td>
+       <td align="center">0.65</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-26</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">百灵庙</td>
+       <td align="center">1376.6</td>
+       <td align="center">0.50</td>
+       <td align="center">0.75</td>
+       <td align="center">0.85</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-27</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">四子王旗</td>
+       <td align="center">1490.1</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">-26</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">化德</td>
+       <td align="center">1482.7</td>
+       <td align="center">0.45</td>
+       <td align="center">0.75</td>
+       <td align="center">0.85</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-26</td>
+       <td align="center">29</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">杭锦后旗陕坝</td>
+       <td align="center">1056.7</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">包头市</td>
+       <td align="center">1067.2</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-23</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">集宁市</td>
+       <td align="center">1419.3</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-25</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">阿拉善左旗吉兰泰</td>
+       <td align="center">1031.8</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">-23</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">临河市</td>
+       <td align="center">1039.3</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-21</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">鄂托克旗</td>
+       <td align="center">1380.3</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.20</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">东胜市</td>
+       <td align="center">1460.4</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-21</td>
+       <td align="center">31</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">阿腾席连</td>
+       <td align="center">1329.3</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">巴彦浩特</td>
+       <td align="center">1561.4</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">西乌珠穆沁旗</td>
+       <td align="center">995.9</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-30</td>
+       <td align="center">30</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">扎鲁特鲁北</td>
+       <td align="center">265.0</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-23</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">巴林左旗林东</td>
+       <td align="center">484.4</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-26</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">锡林浩特市</td>
+       <td align="center">989.5</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.20</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-30</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">林西</td>
+       <td align="center">799.0</td>
+       <td align="center">0.45</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-25</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">开鲁</td>
+       <td align="center">241.0</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-25</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">通辽</td>
+       <td align="center">178.5</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-25</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">多伦</td>
+       <td align="center">1245.4</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-28</td>
+       <td align="center">30</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">翁牛特旗乌丹</td>
+       <td align="center">631.8</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-23</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">赤峰市</td>
+       <td align="center">571.1</td>
+       <td align="center">0.30</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">敖汉旗宝国图</td>
+       <td align="center">400.5</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="25" id="bgcz">辽宁</td>
+       <td align="center" id="bgcz">沈阳市</td>
+       <td align="center">42.8</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">-24</td>
+       <td align="center">33</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">彰武</td>
+       <td align="center">79.4</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-22</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">阜新市</td>
+       <td align="center">144.0</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">开原</td>
+       <td align="center">98.2</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">-27</td>
+       <td align="center">33</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">清原</td>
+       <td align="center">234.1</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.45</td>
+       <td align="center">0.70</td>
+       <td align="center">0.80</td>
+       <td align="center">-27</td>
+       <td align="center">33</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">朝阳市</td>
+       <td align="center">169.2</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">-23</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">建平县叶柏寿</td>
+       <td align="center">421.7</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-22</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">黑山</td>
+       <td align="center">37.5</td>
+       <td align="center">0.45</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-21</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">锦州市</td>
+       <td align="center">65.9</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-18</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">鞍山市</td>
+       <td align="center">77.3</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">-18</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">本溪市</td>
+       <td align="center">185.2</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">-24</td>
+       <td align="center">33</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">抚顺市章党</td>
+       <td align="center">118.5</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-28</td>
+       <td align="center">33</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">桓仁</td>
+       <td align="center">240.3</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">-25</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">绥中</td>
+       <td align="center">15.3</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-19</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">兴城市</td>
+       <td align="center">8.8</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-19</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">营口市</td>
+       <td align="center">3.3</td>
+       <td align="center">0.40</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-20</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">盖县熊岳</td>
+       <td align="center">20.4</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-22</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">本溪县草河口</td>
+       <td align="center">233.4</td>
+       <td align="center">0.25</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">岫岩</td>
+       <td align="center">79.3</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">-22</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">宽甸</td>
+       <td align="center">260.1</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">-26</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">丹东市</td>
+       <td align="center">15.1</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-18</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">瓦房店市</td>
+       <td align="center">29.3</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-17</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">新金县皮口</td>
+       <td align="center">43.2</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">庄河</td>
+       <td align="center">34.8</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-19</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">大连市</td>
+       <td align="center">91.5</td>
+       <td align="center">0.40</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-13</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+
+    <tr>
+		   <td align="center" rowspan="22" id="bgcz">吉林</td>
+       <td align="center" id="bgcz">长春市</td>
+       <td align="center">236.8</td>
+       <td align="center">0.45</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-26</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">白城市</td>
+       <td align="center">155.4</td>
+       <td align="center">0.45</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-29</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">乾安</td>
+       <td align="center">146.3</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.23</td>
+       <td align="center">-28</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">前郭尔罗斯</td>
+       <td align="center">134.7</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-28</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">通榆</td>
+       <td align="center">149.5</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-28</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">长岭</td>
+       <td align="center">189.3</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-27</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">扶余市三岔河</td>
+       <td align="center">196.6</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-29</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">双辽</td>
+       <td align="center">114.9</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-27</td>
+       <td align="center">33</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">四平市</td>
+       <td align="center">164.2</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-24</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">磐石县烟筒山</td>
+       <td align="center">271.6</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-31</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">吉林市</td>
+       <td align="center">183.4</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-31</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">蛟河</td>
+       <td align="center">295.0</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.50</td>
+       <td align="center">0.75</td>
+       <td align="center">0.85</td>
+       <td align="center">-31</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">敦化市</td>
+       <td align="center">523.7</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">-29</td>
+       <td align="center">30</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">梅河口市</td>
+       <td align="center">339.9</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-27</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">桦甸</td>
+       <td align="center">263.8</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.40</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">-33</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">靖宇</td>
+       <td align="center">549.2</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">-32</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">扶松县东岗</td>
+       <td align="center">774.2</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">0.80</td>
+       <td align="center">1.15</td>
+       <td align="center">1.30</td>
+       <td align="center">-27</td>
+       <td align="center">33</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">延吉市</td>
+       <td align="center">176.8</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">-26</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">通化市</td>
+       <td align="center">402.9</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.50</td>
+       <td align="center">0.80</td>
+       <td align="center">0.90</td>
+       <td align="center">-27</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">浑江市临江</td>
+       <td align="center">332.7</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.70</td>
+       <td align="center">0.80</td>
+       <td align="center">-27</td>
+       <td align="center">33</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">集安市</td>
+       <td align="center">177.7</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.70</td>
+       <td align="center">0.80</td>
+       <td align="center">-26</td>
+       <td align="center">33</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">长白</td>
+       <td align="center">1016.7</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">-28</td>
+       <td align="center">29</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="31" id="bgcz">黑龙江</td>
+       <td align="center" id="bgcz">哈尔滨市</td>
+       <td align="center">142.3</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.70</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-31</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">漠河</td>
+       <td align="center">296.0</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.75</td>
+       <td align="center">0.85</td>
+       <td align="center">-42</td>
+       <td align="center">30</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">塔河</td>
+       <td align="center">357.4</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">-38</td>
+       <td align="center">30</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">新林</td>
+       <td align="center">494.6</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">-40</td>
+       <td align="center">29</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">呼玛</td>
+       <td align="center">177.4</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.45</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">-40</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">加格达奇</td>
+       <td align="center">371.7</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.65</td>
+       <td align="center">0.70</td>
+       <td align="center">-28</td>
+       <td align="center">30</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">黑河市</td>
+       <td align="center">166.4</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.75</td>
+       <td align="center">0.85</td>
+       <td align="center">-35</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">嫩江</td>
+       <td align="center">242.2</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">-39</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">孙吴</td>
+       <td align="center">234.5</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">0.45</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">-40</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">北安市</td>
+       <td align="center">269.7</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">-36</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">克山</td>
+       <td align="center">234.6</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">-34</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">富裕</td>
+       <td align="center">162.4</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-34</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">齐齐哈尔市</td>
+       <td align="center">145.9</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-30</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">海伦</td>
+       <td align="center">239.2</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-32</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">明水</td>
+       <td align="center">249.2</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-30</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">伊春市</td>
+       <td align="center">240.9</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">-36</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">鹤岗市</td>
+       <td align="center">227.9</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.45</td>
+       <td align="center">0.65</td>
+       <td align="center">0.70</td>
+       <td align="center">-27</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">富锦</td>
+       <td align="center">64.2</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">-30</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">泰来</td>
+       <td align="center">149.5</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-28</td>
+       <td align="center">33</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">绥化市</td>
+       <td align="center">179.6</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">-32</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">安达市</td>
+       <td align="center">149.3</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-31</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">铁力</td>
+       <td align="center">210.5</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.75</td>
+       <td align="center">0.85</td>
+       <td align="center">-34</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">佳木斯市</td>
+       <td align="center">81.2</td>
+       <td align="center">0.40</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">0.60</td>
+       <td align="center">0.85</td>
+       <td align="center">0.95</td>
+       <td align="center">-30</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">依兰</td>
+       <td align="center">100.1</td>
+       <td align="center">0.45</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-29</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">宝清</td>
+       <td align="center">83.0</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">0.85</td>
+       <td align="center">1.00</td>
+       <td align="center">-30</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">通河</td>
+       <td align="center">108.6</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.50</td>
+       <td align="center">0.75</td>
+       <td align="center">0.85</td>
+       <td align="center">-33</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">尚志</td>
+       <td align="center">189.7</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">-32</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">鸡西市</td>
+       <td align="center">233.6</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.45</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">-27</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">虎林</td>
+       <td align="center">100.2</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.95</td>
+       <td align="center">1.40</td>
+       <td align="center">1.60</td>
+       <td align="center">-29</td>
+       <td align="center">31</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">牡丹江市</td>
+       <td align="center">241.4</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.50</td>
+       <td align="center">0.75</td>
+       <td align="center">0.85</td>
+       <td align="center">-28</td>
+       <td align="center">32</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">绥芬河市</td>
+       <td align="center">496.7</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">0.85</td>
+       <td align="center">-30</td>
+       <td align="center">29</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="23" id="bgcz">山东</td>
+       <td align="center" id="bgcz">济南市</td>
+       <td align="center">51.6</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-9</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">德州市</td>
+       <td align="center">21.2</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-11</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">惠民</td>
+       <td align="center">11.3</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-13</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">寿光县羊角沟</td>
+       <td align="center">4.4</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-11</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">龙口市</td>
+       <td align="center">4.8</td>
+       <td align="center">0.45</td>
+       <td align="center">0.60</td>
+       <td align="center">0.65</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-11</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">烟台市</td>
+       <td align="center">46.7</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-8</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">威海市</td>
+       <td align="center">46.6</td>
+       <td align="center">0.45</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">-8</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">荣成市成山头</td>
+       <td align="center">47.7</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">0.75</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-7</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">莘县朝城</td>
+       <td align="center">42.7</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-12</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">泰安市泰山</td>
+       <td align="center">1533.7</td>
+       <td align="center">0.65</td>
+       <td align="center">0.86</td>
+       <td align="center">0.95</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">-16</td>
+       <td align="center">25</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">泰安市</td>
+       <td align="center">128.8</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-12</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">淄博市张店</td>
+       <td align="center">34.0</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-12</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">沂源</td>
+       <td align="center">304.5</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-13</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">潍坊市</td>
+       <td align="center">44.1</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-12</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">莱阳市</td>
+       <td align="center">30.5</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-13</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">青岛市</td>
+       <td align="center">76.0</td>
+       <td align="center">0.45</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-9</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">海阳</td>
+       <td align="center">65.2</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.15</td>
+       <td align="center">-10</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">荣成市石岛</td>
+       <td align="center">33.7</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.15</td>
+       <td align="center">-8</td>
+       <td align="center">31</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">菏泽市</td>
+       <td align="center">49.7</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-10</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">兖州</td>
+       <td align="center">51.7</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">-11</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">营县</td>
+       <td align="center">107.4</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-11</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">临沂</td>
+       <td align="center">87.9</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-10</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">日照市</td>
+       <td align="center">16.1</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-8</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="18" id="bgcz">江苏</td>
+       <td align="center" id="bgcz">南京市</td>
+       <td align="center">8.9</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.40</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">-6</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">徐州市</td>
+       <td align="center">41.0</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-8</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">赣榆</td>
+       <td align="center">2.1</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-8</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">盱眙</td>
+       <td align="center">34.5</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-7</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">淮阴市</td>
+       <td align="center">17.5</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-7</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">射阳</td>
+       <td align="center">2.0</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-7</td>
+       <td align="center">35</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">镇江</td>
+       <td align="center">26.5</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">无锡</td>
+       <td align="center">6.7</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">泰州</td>
+       <td align="center">6.6</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">连云港</td>
+       <td align="center">3.7</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">盐城</td>
+       <td align="center">3.6</td>
+       <td align="center">0.25</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">高邮</td>
+       <td align="center">5.4</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-6</td>
+       <td align="center">36</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">东台市</td>
+       <td align="center">4.3</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-6</td>
+       <td align="center">36</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">南通市</td>
+       <td align="center">5.3</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-4</td>
+       <td align="center">36</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">启东县吕泗</td>
+       <td align="center">5.5</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.10</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-4</td>
+       <td align="center">35</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">常州市</td>
+       <td align="center">4.9</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-4</td>
+       <td align="center">37</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">溧阳</td>
+       <td align="center">7.2</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">-5</td>
+       <td align="center">37</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">吴县东山</td>
+       <td align="center">17.5</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-5</td>
+       <td align="center">36</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="20" id="bgcz">浙江</td>
+       <td align="center" id="bgcz">杭州市</td>
+       <td align="center">41.7</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-4</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">临安县天目山</td>
+       <td align="center">1505.9</td>
+       <td align="center">0.55</td>
+       <td align="center">0.75</td>
+       <td align="center">0.85</td>
+       <td align="center">1.00</td>
+       <td align="center">1.60</td>
+       <td align="center">1.85</td>
+       <td align="center">-11</td>
+       <td align="center">28</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">平湖县乍浦</td>
+       <td align="center">5.4</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-5</td>
+       <td align="center">36</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">慈溪市</td>
+       <td align="center">7.1</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-4</td>
+       <td align="center">37</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">嵊泗</td>
+       <td align="center">79.6</td>
+       <td align="center">0.85</td>
+       <td align="center">1.30</td>
+       <td align="center">1.55</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-2</td>
+       <td align="center">34</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">嵊泗县嵊山</td>
+       <td align="center">124.6</td>
+       <td align="center">1.00</td>
+       <td align="center">1.65</td>
+       <td align="center">1.95</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0</td>
+       <td align="center">30</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">舟山市</td>
+       <td align="center">35.7</td>
+       <td align="center">0.50</td>
+       <td align="center">0.85</td>
+       <td align="center">1.00</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">-2</td>
+       <td align="center">35</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">金华市</td>
+       <td align="center">62.6</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">-3</td>
+       <td align="center">39</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">嵊县</td>
+       <td align="center">104.3</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">-3</td>
+       <td align="center">39</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">宁波市</td>
+       <td align="center">4.2</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-3</td>
+       <td align="center">37</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">象山县石浦</td>
+       <td align="center">128.4</td>
+       <td align="center">0.75</td>
+       <td align="center">1.20</td>
+       <td align="center">1.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-2</td>
+       <td align="center">35</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">衢州市</td>
+       <td align="center">66.9</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">-3</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">丽水市</td>
+       <td align="center">60.8</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-3</td>
+       <td align="center">39</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">龙泉</td>
+       <td align="center">198.4</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">-2</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">临海市括苍山</td>
+       <td align="center">1383.1</td>
+       <td align="center">0.60</td>
+       <td align="center">0.90</td>
+       <td align="center">1.05</td>
+       <td align="center">0.45</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">-8</td>
+       <td align="center">29</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">温州市</td>
+       <td align="center">6.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0</td>
+       <td align="center">36</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">椒江市洪家</td>
+       <td align="center">1.3</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-2</td>
+       <td align="center">36</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">椒江市下大陈</td>
+       <td align="center">86.2</td>
+       <td align="center">0.95</td>
+       <td align="center">1.45</td>
+       <td align="center">1.75</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-1</td>
+       <td align="center">33</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">玉环县坎门</td>
+       <td align="center">95.9</td>
+       <td align="center">0.70</td>
+       <td align="center">1.20</td>
+       <td align="center">1.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0</td>
+       <td align="center">34</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">瑞安市北麂</td>
+       <td align="center">42.3</td>
+       <td align="center">1.00</td>
+       <td align="center">1.80</td>
+       <td align="center">2.20</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">2</td>
+       <td align="center">33</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="15" id="bgcz">安徽</td>
+       <td align="center" id="bgcz">合肥市</td>
+       <td align="center">27.9</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">-6</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">砀山</td>
+       <td align="center">43.2</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-9</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">亳州市</td>
+       <td align="center">37.7</td>
+       <td align="center">0.25</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-8</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">宿县</td>
+       <td align="center">25.9</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-8</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">寿县</td>
+       <td align="center">22.7</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">-7</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">蚌埠市</td>
+       <td align="center">18.7</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">-6</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">滁县</td>
+       <td align="center">25.3</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">-6</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">六安市</td>
+       <td align="center">60.5</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">-5</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">霍山</td>
+       <td align="center">68.1</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">-6</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">巢湖</td>
+       <td align="center">22.4</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-5</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">安庆市</td>
+       <td align="center">19.8</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-3</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">宁国</td>
+       <td align="center">89.4</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">-6</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">黄山</td>
+       <td align="center">1840.4</td>
+       <td align="center">0.50</td>
+       <td align="center">0.70</td>
+       <td align="center">0.80</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-11</td>
+       <td align="center">24</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">黄山市</td>
+       <td align="center">142.7</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-3</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">阜阳市</td>
+       <td align="center">30.6</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">-7</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="17" id="bgcz">江西</td>
+       <td align="center" id="bgcz">南昌市</td>
+       <td align="center">46.7</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-3</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">修水</td>
+       <td align="center">146.8</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.45</td>
+       <td align="center">-4</td>
+       <td align="center">37</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">宜春市</td>
+       <td align="center">131.3</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-3</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">吉安</td>
+       <td align="center">76.4</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">-2</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">宁冈</td>
+       <td align="center">263.1</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-3</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">遂川</td>
+       <td align="center">126.1</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">-1</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">赣州市</td>
+       <td align="center">123.8</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">九江</td>
+       <td align="center">36.1</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-2</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">庐山</td>
+       <td align="center">1164.5</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.60</td>
+       <td align="center">0.95</td>
+       <td align="center">1.05</td>
+       <td align="center">-9</td>
+       <td align="center">29</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">波阳</td>
+       <td align="center">40.1</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.35</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">-3</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">景德镇市</td>
+       <td align="center">61.5</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-3</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">樟树市</td>
+       <td align="center">30.4</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-3</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">贵溪</td>
+       <td align="center">51.2</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">-2</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">玉山</td>
+       <td align="center">116.3</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">-3</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">南城</td>
+       <td align="center">80.8</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-3</td>
+       <td align="center">37</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">广昌</td>
+       <td align="center">143.8</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-2</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">寻乌</td>
+       <td align="center">303.9</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-0.3</td>
+       <td align="center">37</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="20" id="bgcz">福建</td>
+       <td align="center" id="bgcz">福州市</td>
+       <td align="center">83.8</td>
+       <td align="center">0.40</td>
+       <td align="center">0.70</td>
+       <td align="center">0.85</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">3</td>
+       <td align="center">37</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">邵武市</td>
+       <td align="center">191.5</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-1</td>
+       <td align="center">37</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">崇安县七仙山</td>
+       <td align="center">1401.9</td>
+       <td align="center">0.55</td>
+       <td align="center">0.70</td>
+       <td align="center">0.80</td>
+       <td align="center">0.40</td>
+       <td align="center">0.60</td>
+       <td align="center">0.70</td>
+       <td align="center">-5</td>
+       <td align="center">28</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">浦城</td>
+       <td align="center">276.9</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">-2</td>
+       <td align="center">37</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">建阳</td>
+       <td align="center">196.9</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">-2</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">建瓯</td>
+       <td align="center">154.9</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">福鼎</td>
+       <td align="center">36.2</td>
+       <td align="center">0.35</td>
+       <td align="center">0.70</td>
+       <td align="center">0.90</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">1</td>
+       <td align="center">37</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">泰宁</td>
+       <td align="center">342.9</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">-2</td>
+       <td align="center">37</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">南平市</td>
+       <td align="center">125.6</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">2</td>
+       <td align="center">38</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">福鼎县台山</td>
+       <td align="center">106.6</td>
+       <td align="center">0.75</td>
+       <td align="center">1.00</td>
+       <td align="center">1.15</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">4</td>
+       <td align="center">30</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">长汀</td>
+       <td align="center">310.0</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0</td>
+       <td align="center">36</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">上杭</td>
+       <td align="center">197.9</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">2</td>
+       <td align="center">36</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">永安市</td>
+       <td align="center">206.0</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">2</td>
+       <td align="center">38</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">龙岩市</td>
+       <td align="center">342.3</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">3</td>
+       <td align="center">36</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">德化县九仙山</td>
+       <td align="center">1653.5</td>
+       <td align="center">0.60</td>
+       <td align="center">0.80</td>
+       <td align="center">0.90</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">-3</td>
+       <td align="center">25</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">屏南</td>
+       <td align="center">896.5</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.25</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-2</td>
+       <td align="center">32</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">平潭</td>
+       <td align="center">32.4</td>
+       <td align="center">0.75</td>
+       <td align="center">1.30</td>
+       <td align="center">1.60</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">4</td>
+       <td align="center">34</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">崇武</td>
+       <td align="center">21.8</td>
+       <td align="center">0.55</td>
+       <td align="center">0.85</td>
+       <td align="center">1.05</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">5</td>
+       <td align="center">33</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">厦门市</td>
+       <td align="center">139.4</td>
+       <td align="center">0.50</td>
+       <td align="center">0.80</td>
+       <td align="center">0.95</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">5</td>
+       <td align="center">35</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">东山</td>
+       <td align="center">53.3</td>
+       <td align="center">0.80</td>
+       <td align="center">1.25</td>
+       <td align="center">1.45</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">7</td>
+       <td align="center">34</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="19" id="bgcz">陕西</td>
+       <td align="center" id="bgcz">西安市</td>
+       <td align="center">397.5</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-9</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">榆林市</td>
+       <td align="center">1057.5</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-22</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">吴旗</td>
+       <td align="center">1272.6</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.20</td>
+       <td align="center">-20</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">横山</td>
+       <td align="center">1111.0</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-21</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">绥德</td>
+       <td align="center">929.7</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-19</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">延安市</td>
+       <td align="center">957.8</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-17</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">长武</td>
+       <td align="center">1206.5</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-15</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">洛川</td>
+       <td align="center">1158.3</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-15</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">铜川市</td>
+       <td align="center">978.9</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.15</td>
+       <td align="center">0.50</td>
+       <td align="center">0.25</td>
+       <td align="center">-12</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">宝鸡市</td>
+       <td align="center">612.4</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-8</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">武功</td>
+       <td align="center">447.8</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-9</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">华阴县华山</td>
+       <td align="center">2064.9</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.50</td>
+       <td align="center">0.70</td>
+       <td align="center">0.75</td>
+       <td align="center">-15</td>
+       <td align="center">25</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">略阳</td>
+       <td align="center">794.2</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.15</td>
+       <td align="center">-6</td>
+       <td align="center">34</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">汉中市</td>
+       <td align="center">508.4</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-5</td>
+       <td align="center">34</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">佛坪</td>
+       <td align="center">1087.7</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-8</td>
+       <td align="center">33</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">商州市</td>
+       <td align="center">742.2</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-8</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">镇安</td>
+       <td align="center">693.7</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-7</td>
+       <td align="center">36</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">石泉</td>
+       <td align="center">484.9</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-5</td>
+       <td align="center">35</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">安康市</td>
+       <td align="center">290.8</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">-4</td>
+       <td align="center">37</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="30" id="bgcz">甘肃</td>
+       <td align="center" id="bgcz">兰州</td>
+       <td align="center">1517.2</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">-15</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">吉诃德</td>
+       <td align="center">966.5</td>
+       <td align="center">0.45</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">安西</td>
+       <td align="center">1170.8</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.10</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-22</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">酒泉市</td>
+       <td align="center">1477.2</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-21</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">张掖市</td>
+       <td align="center">1482.7</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">-22</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">武威市</td>
+       <td align="center">1530.9</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.65</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-20</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">民勤</td>
+       <td align="center">1367.0</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.10</td>
+       <td align="center">-21</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">乌鞘岭</td>
+       <td align="center">3045.1</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">-22</td>
+       <td align="center">21</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">景泰</td>
+       <td align="center">1630.5</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">-18</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">靖远</td>
+       <td align="center">1398.2</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-18</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">临夏市</td>
+       <td align="center">1917.0</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-18</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">临洮</td>
+       <td align="center">1886.6</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.30</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">-19</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">华家岭</td>
+       <td align="center">2450.6</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-17</td>
+       <td align="center">24</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">环县</td>
+       <td align="center">1255.6</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-18</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">平凉市</td>
+       <td align="center">1346.6</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-14</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">西峰镇</td>
+       <td align="center">1421.0</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-14</td>
+       <td align="center">31</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">玛曲</td>
+       <td align="center">3471.4</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-23</td>
+       <td align="center">21</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">夏河县合作</td>
+       <td align="center">2910.0</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">武都</td>
+       <td align="center">1079.1</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">-5</td>
+       <td align="center">35</td>
+       <td align="center">Ⅲ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">天水市</td>
+       <td align="center">1141.7</td>
+       <td align="center">0.20</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-11</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">马宗山</td>
+       <td align="center">1962.7</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">-25</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">敦煌</td>
+       <td align="center">1139.0</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">-20</td>
+       <td align="center">37</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">玉门市</td>
+       <td align="center">1526.0</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-21</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">金塔县鼎新</td>
+       <td align="center">1177.4</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">-21</td>
+       <td align="center">36</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">高台</td>
+       <td align="center">1332.2</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">-21</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">山丹</td>
+       <td align="center">1764.6</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-21</td>
+       <td align="center">32</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">永昌</td>
+       <td align="center">1976.1</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">-22</td>
+       <td align="center">29</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">榆中</td>
+       <td align="center">1874.1</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-19</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">会宁</td>
+       <td align="center">2012.2</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">岷县</td>
+       <td align="center">2315.0</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">-19</td>
+       <td align="center">27</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="10" id="bgcz">宁夏</td>
+       <td align="center" id="bgcz">银川</td>
+       <td align="center">1111.4</td>
+       <td align="center">0.40</td>
+       <td align="center">0.65</td>
+       <td align="center">0.75</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-19</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">惠农</td>
+       <td align="center">1091.0</td>
+       <td align="center">0.45</td>
+       <td align="center">0.65</td>
+       <td align="center">0.70</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.10</td>
+       <td align="center">-20</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">陶乐</td>
+       <td align="center">1101.6</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.10</td>
+       <td align="center">-20</td>
+       <td align="center">35</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">中卫</td>
+       <td align="center">1225.7</td>
+       <td align="center">0.30</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">-18</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">中宁</td>
+       <td align="center">1183.3</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">-18</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">盐池</td>
+       <td align="center">1347.8</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-20</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">海源</td>
+       <td align="center">1854.2</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-17</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">同心</td>
+       <td align="center">1343.9</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.10</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">-18</td>
+       <td align="center">34</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">固原</td>
+       <td align="center">1753.0</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-20</td>
+       <td align="center">29</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">西吉</td>
+       <td align="center">1916.5</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.20</td>
+       <td align="center">-20</td>
+       <td align="center">29</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="35" id="bgcz">青海</td>
+       <td align="center" id="bgcz">西宁</td>
+       <td align="center">2261.2</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-19</td>
+       <td align="center">29</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">茫崖</td>
+       <td align="center">3138.5</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.10</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">冷湖</td>
+       <td align="center">2733.0</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.10</td>
+       <td align="center">-26</td>
+       <td align="center">29</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">祁连县托勒</td>
+       <td align="center">3367.0</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-32</td>
+       <td align="center">22</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">祁连县野牛沟</td>
+       <td align="center">3180.0</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.20</td>
+       <td align="center">-31</td>
+       <td align="center">21</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">祁连县</td>
+       <td align="center">2787.4</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.15</td>
+       <td align="center">-25</td>
+       <td align="center">25</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">格尔木市小灶火</td>
+       <td align="center">2767.0</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.10</td>
+       <td align="center">-25</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">大柴旦</td>
+       <td align="center">3173.2</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.15</td>
+       <td align="center">-27</td>
+       <td align="center">26</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">德令哈市</td>
+       <td align="center">2981.5</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">-22</td>
+       <td align="center">28</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">刚察</td>
+       <td align="center">3301.5</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-26</td>
+       <td align="center">21</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">门源</td>
+       <td align="center">2850.0</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.30</td>
+       <td align="center">-27</td>
+       <td align="center">24</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">格尔木市</td>
+       <td align="center">2807.6</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.10</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-21</td>
+       <td align="center">29</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">都兰县诺木洪</td>
+       <td align="center">2790.4</td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.10</td>
+       <td align="center">-22</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">都兰</td>
+       <td align="center">3191.1</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.55</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-21</td>
+       <td align="center">26</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">乌兰县茶卡</td>
+       <td align="center">3087.6</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-25</td>
+       <td align="center">25</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">共和县恰卜恰</td>
+       <td align="center">2835.0</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">-22</td>
+       <td align="center">26</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">贵德</td>
+       <td align="center">2237.1</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.05</td>
+       <td align="center">0.10</td>
+       <td align="center">0.10</td>
+       <td align="center">-18</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">民和</td>
+       <td align="center">1813.9</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.10</td>
+       <td align="center">0.10</td>
+       <td align="center">0.15</td>
+       <td align="center">-17</td>
+       <td align="center">31</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">唐古拉山五道梁</td>
+       <td align="center">4612.2</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-29</td>
+       <td align="center">17</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">兴海</td>
+       <td align="center">3323.2</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.00</td>
+       <td align="center">-25</td>
+       <td align="center">23</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">同德</td>
+       <td align="center">3289.4</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-28</td>
+       <td align="center">23</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">泽库</td>
+       <td align="center">3662.8</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.20</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">格尔木市托托河</td>
+       <td align="center">4533.1</td>
+       <td align="center">0.40</td>
+       <td align="center">0.50</td>
+       <td align="center">0.55</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-33</td>
+       <td align="center">19</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">治多</td>
+       <td align="center">4179.0</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">杂多</td>
+       <td align="center">4066.4</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-25</td>
+       <td align="center">22</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">曲麻菜</td>
+       <td align="center">4231.2</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.15</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-28</td>
+       <td align="center">20</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">玉树</td>
+       <td align="center">3681.2</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-20</td>
+       <td align="center">22.4</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">玛多</td>
+       <td align="center">4272.3</td>
+       <td align="center">0.30</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">-33</td>
+       <td align="center">18</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">称多县清水河</td>
+       <td align="center">4415.4</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-33</td>
+       <td align="center">17</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">玛沁县仁峡姆</td>
+       <td align="center">4211.1</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">-33</td>
+       <td align="center">18</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">达日县吉迈</td>
+       <td align="center">3967.5</td>
+       <td align="center">0.25</td>
+       <td align="center">0.35</td>
+       <td align="center">0.40</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-27</td>
+       <td align="center">20</td>
+       <td align="center">Ⅰ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">河南</td>
+       <td align="center">3500.0</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-29</td>
+       <td align="center">21</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">久治</td>
+       <td align="center">3628.5</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">-24</td>
+       <td align="center">21</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">昂欠</td>
+       <td align="center">3643.7</td>
+       <td align="center">0.25</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.10</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-18</td>
+       <td align="center">25</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">班玛</td>
+       <td align="center">3750.0</td>
+       <td align="center">0.20</td>
+       <td align="center">0.30</td>
+       <td align="center">0.35</td>
+       <td align="center">0.15</td>
+       <td align="center">0.20</td>
+       <td align="center">0.25</td>
+       <td align="center">-20</td>
+       <td align="center">22</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="4" id="bgcz">新疆52</td>
+       <td align="center" id="bgcz">长春市</td>
+       <td align="center">1063.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="4" id="bgcz">河南17</td>
+       <td align="center" id="bgcz">长春市</td>
+       <td align="center">1063.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="4" id="bgcz">湖北18</td>
+       <td align="center" id="bgcz">长春市</td>
+       <td align="center">1063.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="4" id="bgcz">湖南22</td>
+       <td align="center" id="bgcz">长春市</td>
+       <td align="center">1063.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="4" id="bgcz">广东25</td>
+       <td align="center" id="bgcz">长春市</td>
+       <td align="center">1063.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="4" id="bgcz">广西15</td>
+       <td align="center" id="bgcz">长春市</td>
+       <td align="center">1063.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="4" id="bgcz">海南9</td>
+       <td align="center" id="bgcz">长春市</td>
+       <td align="center">1063.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="4" id="bgcz">四川49</td>
+       <td align="center" id="bgcz">长春市</td>
+       <td align="center">1063.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="4" id="bgcz">贵州18</td>
+       <td align="center" id="bgcz">长春市</td>
+       <td align="center">1063.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="4" id="bgcz">云南43</td>
+       <td align="center" id="bgcz">长春市</td>
+       <td align="center">1063.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="4" id="bgcz">西藏24</td>
+       <td align="center" id="bgcz">长春市</td>
+       <td align="center">1063.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="4" id="bgcz">台湾11</td>
+       <td align="center" id="bgcz">长春市</td>
+       <td align="center">1063.0</td>
+       <td align="center">0.35</td>
+       <td align="center">0.55</td>
+       <td align="center">0.60</td>
+       <td align="center">0.25</td>
+       <td align="center">0.40</td>
+       <td align="center">0.45</td>
+       <td align="center">-23</td>
+       <td align="center">33</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz"></td>
+       <td align="center"></td>
+       <td align="center">0.35</td>
+       <td align="center">0.50</td>
+       <td align="center">0.60</td>
+       <td align="center">0.35</td>
+       <td align="center">0.45</td>
+       <td align="center">0.50</td>
+       <td align="center">-41</td>
+       <td align="center">30</td>
+       <td align="center">Ⅱ</td>
+		</tr>
+    <tr>
+		   <td align="center" rowspan="2" id="bgcz">香港</td>
+       <td align="center" id="bgcz">香港</td>
+       <td align="center">50.0</td>
+       <td align="center">0.80</td>
+       <td align="center">0.90</td>
+       <td align="center">0.95</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+		</tr>
+    <tr>
+       <td align="center" id="bgcz">横澜岛</td>
+       <td align="center">55.0</td>
+       <td align="center">0.95</td>
+       <td align="center">1.25</td>
+       <td align="center">1.40</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+		</tr>
+     <tr>
+	   <td align="center" id="bgcz">澳门</td>
+       <td align="center" id="bgcz">澳门</td>
+       <td align="center">57.0</td>
+       <td align="center">0.75</td>
+       <td align="center">0.85</td>
+       <td align="center">0.90</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+       <td align="center">-</td>
+		</tr>
+ </tbody>
+ </table>
+ <table border="0" style="font-family:times new roman" id="gongshi">
+ <tr>
+ <td width="50px" align='right' id="eqzs"><font size="2">注：</td>
+ <td width="650px" align='left' id="eqzs"><font size="2">表中“-”表示该城市没有统计数据。</td>
+ </tr>
+ </table>
+ <p></p>
+
+</body>
+</html>

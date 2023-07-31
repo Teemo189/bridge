@@ -27,7 +27,7 @@
 **项目列表** :可以创建新的项目，查看已创建的项目，或对项目进行修改和删除操作。
 
 .. raw:: html
-   :file: ./_static/xx2.html
+   :file: ./_static/shai.html
 
 --------------
 
