@@ -11,20 +11,7 @@
    <p style="text-align:justify;text-indent:2em">人类受自然界的启示，诞生了桥的概念和桥的形态（<a href="#image1a">图1-1-1</a>），又在谋求生存和发展、改造自然与征服屏障的历史长河中，创造和发展了桥梁（<a href="#image2a">图1-1-2</a>）。经过千百年的不懈努力，造就了一个庞大的桥梁世界。</span></p>
   <p style="text-align:justify;text-indent:2em">桥梁是交通设施，是建筑艺术，是文明的象征，是科学技术进步的结晶，也是综合国力的体现与象征（<a href="#image3a">图1-1-3</a>）。</span></p>
 
-.. raw:: html
-   :file: ./_static/fig11.html
 
-
-.. raw:: html
-   :file: ./_static/fig12ab.html
-
-
-.. raw:: html  
-   :file: ./_static/fig12cde.html
-
-
-.. raw:: html
-   :file: ./_static/fig13.html
 
 
 .. raw:: html
