@@ -54,8 +54,7 @@
 :ref:`桥梁信息`
 。
 
-.. raw:: html
-   :file: ./_static/ks6.html
+
 
 ----
 
