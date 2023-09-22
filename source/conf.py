@@ -20,8 +20,8 @@ html_style = 'css/custom.css'
 html_js_files = ['js/MathJax.js']
 html_style = 'js/MathJax.js'
 
-mathjax2_config = {
-    'extensions': ['tex2jax.js'],
+mathjax3_config = {
+    'extensions': ['tex3jax.js'],
     'jax': ['input/TeX', 'output/HTML-CSS'],
 }
 
