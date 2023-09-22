@@ -16,9 +16,12 @@ toolbox学习
 
 进入 `toolbox学习内容 <file:///C:/Users/Administrator/Desktop/bridge/build/html/toolbox.html>`__ ,看到的是系统主页,这里分为6个部分的信息展示。
 
-.. collapse:: 更多操作
+.. rest-example::
+    .. collapse:: 更多操作
+        :class: custom-summary
+        :name: summary1
 
-    浏览量  评论  收藏  分享
+        浏览量  评论  收藏  分享
 
 
 **本地文件链接**
@@ -28,6 +31,10 @@ toolbox学习
 :asset:`hello_world <hello_world.txt>`
 
 :download:`hello_world.txt <./assets/hello_world.txt>`
+
+* ::demo::alongsideing
+
+
 
 .. only:: builder_html
 
@@ -59,6 +66,16 @@ toolbox学习
       or alongside the attribute.
       The class docstring has priority.
     * Added support for `autodocsumm <https://github.com/Chilipp/autodocsumm>`_.
+
+``one``  ``two``
+
+``qqq``  ``www``
+
+``eee``  ``rrr``
+
+``ttt``  ``yyy``
+
+``uuu``  ``iii``
 
 **代码**
 

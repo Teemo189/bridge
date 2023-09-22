@@ -17,7 +17,13 @@ html_static_path = ['_static']
 html_css_files = ['css/custom.css']
 html_style = 'css/custom.css'
 
+html_js_files = ['js/MathJax.js']
+html_style = 'js/MathJax.js'
 
+mathjax2_config = {
+    'extensions': ['tex2jax.js'],
+    'jax': ['input/TeX', 'output/HTML-CSS'],
+}
 
 exclude_patterns = []
 
