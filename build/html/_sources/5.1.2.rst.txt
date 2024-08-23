@@ -1,0 +1,79 @@
+第二节  悬索桥的结构体系
+---------------------------
+
+.. raw:: html
+
+ <h3 id="test111">第一节  悬索桥的特点</h3>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-1.10"> [A5-1.10]</a><span id="idA5-1.10"></span>若不考虑吊索的支承作用，悬索桥的加劲梁实际上是支承在桥塔或者桥墩上的梁式结构。根据跨数和支承点类型，可分为单跨简支体系、双跨连续体系、三跨简支体系、三跨连续体系、多跨连续体系和自锚体系。</p>
+ 
+ <link rel="stylesheet" type="text/css" href="../_static/viewer.min.css"/>
+ <script src="../_static/viewer.min.js" type="text/javascript" charset="utf-8"></script>
+
+ <div style="text-align:center;"><img id="image513a" src="../_static/fig/5-1-3a.png" alt="Picture"></div>
+ <p style="color: dimgray;text-align: center;">a）单跨简支体系</p>
+ <script type="text/javascript">var viewer = new Viewer(document.getElementById('image513a'));</script>
+
+ <div style="text-align:center;"><img id="image513b" src="../_static/fig/5-1-3b.png" alt="Picture"></div>
+ <p style="color: dimgray;text-align: center;">b）双跨连续体系</p>
+ <script type="text/javascript">var viewer = new Viewer(document.getElementById('image513b'));</script>
+
+ <div style="text-align:center;"><img id="image513c" src="../_static/fig/5-1-3c.png" alt="Picture"></div>
+ <p style="color: dimgray;text-align: center;">c）三跨连续体系（三跨简支体系为加劲梁不连续，在桥墩处设置伸缩缝）</p>
+ <script type="text/javascript">var viewer = new Viewer(document.getElementById('image513c'));</script>
+
+ <div style="text-align:center;"><img id="image513d" src="../_static/fig/5-1-3d.png" alt="Picture"></div>
+ <p style="color: dimgray;text-align: center;">d）多跨连续体系</p>
+ <script type="text/javascript">var viewer = new Viewer(document.getElementById('image513d'));</script>
+
+ <div style="text-align:center;"><img id="image513e" src="../_static/fig/5-1-3e.png" alt="Picture"></div>
+ <p style="color: dimgray;text-align: center;">e）自锚体系<br>图5-1-3  悬索桥的类型（按加劲梁支承体系）</p>
+ <script type="text/javascript">var viewer = new Viewer(document.getElementById('image513e'));</script>
+ 
+ <p><a href="#id5.1.2.1">一、单跨简支体系</a> <span id="id5.1.2.1"></span></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-1.11"> [A5-1.11]</a><span id="idA5-1.11"></span>单跨简支体系悬索桥[<a href="#image513a">图5-1-3a）</a>]常用于高山峡谷地区或或两岸地势较高的地区，采用桥墩支承边跨的梁体结构更为经济（例如：江阴长江公路大桥），或者道路的接线受到限制，使得平曲线布置不得不进入大桥边跨的情况（例如：日本来岛海峡三桥）。就结构特性而言，由于边跨主缆未悬吊加劲梁，故垂度较小，缆索长度相对较短，对于悬索桥的整体刚度有明显提高，对中跨荷载变形控制更为有利。如果锚碇位置受到限制，使边跨过小，导致边跨主缆倾角增大，拉力增加，此时边跨主缆需要增加相应的背索以抵抗主缆的拉力。</p>
+ 
+ <p><a href="#id5.1.2.2">一、单跨简支体系</a> <span id="id5.1.2.2"></span></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-1.12"> [A5-1.12]</a><span id="idA5-1.12"></span>双跨连续体系悬索桥[<a href="#image513b">图5-1-3b）</a>]常用于只有一岸、边跨地面较高或不适合于设桥墩的情况，即一个边跨与主跨的加劲梁是悬吊的，另一边跨的梁体是由桥墩支承的形式（例如：舟山西堠门大桥、香港青马大桥），结构整体受力介于单跨简支体系悬索桥和三跨简支体系悬索桥之间。</p>
+ 
+ <p><a href="#id5.1.2.3">三、三跨简支和三跨连续体系</a> <span id="id5.1.2.3"></span></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-1.13"> [A5-1.13]</a><span id="idA5-1.13"></span>三跨简支、三跨连续体系悬索桥[<a href="#image513c">图5-1-3c）</a>、<a href="#image513d">d）</a>] 不仅结构受力特征较为合理，而且以流畅对称的建筑造型更符合人们的审美观点，是目前国际工程实例中应用最多的桥型，世界上大跨度悬索桥大多采用这种形式。三跨简支体系与三跨连续体系主要区别在于加劲梁是否连续，三跨连续体系除在桥塔附近增加特殊吊索外，行驶更为舒适、流畅，同时可以省去桥塔处的支座及伸缩缝，减小加劲梁梁端转角变形以及跨中的挠度（包括竖向和横向挠度），但连续加劲梁和非连续的双铰加劲梁在其他方面相比有以下缺点：</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa">（1）桥塔附近增加特殊吊索；</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa">（2）中间支点（桥塔处）附近产生较大的弯矩；</p>
+ <p style="text-align:justify;font-family:times new roman">（3）加劲梁的制造及架设误差以及桥墩的不均匀沉降对加劲梁应力有一定的影响。</p>
+
+ <div style="text-align:center;"><img id="image514" src="../_static/fig/5-1-4.png" alt="Picture"></div>
+ <p style="color: dimgray;text-align: center;">图5-1-4  悬索桥结构体系示意</p>
+ <script type="text/javascript">var viewer = new Viewer(document.getElementById('image514'));</script>
+ 
+ <p><a href="#id5.1.2.4">四、多跨连续体系</a> <span id="id5.1.2.4"></span></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-1.14"> [A5-1.14]</a><span id="idA5-1.14"></span>相对于三跨悬索桥而言，四跨或者五跨悬索桥又称之为多跨悬索桥[<a href="#image513d">图5-1-3d）</a>]。多跨连续体系悬索桥由于结构柔性大，固有振动频率较低，同时，为了提高悬索桥的整体刚度，必须增大中间桥塔的纵向刚度和主缆的矢跨比。在两跨不对称荷载作用下桥塔顶将会承受不平衡水平力，造成塔根巨大的纵向弯矩，而且可能造成主缆在鞍座内滑移影响到桥面平顺；同时不平衡水平力在桥塔刚度不大时，塔顶水平位移过大也会影响到桥面平顺，桥塔刚度和水平力大小与塔顶位移有直接的关系。在建桥条件需要采用连续、大跨布置桥型时，有时可以采用两个三跨悬索桥联袂布置，中间共用一座锚碇锚固这两座桥的缆索。</p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-1.15"> [A5-1.15]</a><span id="idA5-1.15"></span>我国已建成的泰州长江大桥采用主跨2×1080m的三塔悬索桥，中塔采用强度高且受力相对较好的“纵向人字形、横向门式”钢塔柱结构（<a href="#image515">图5-1-5</a>），以满足三塔悬索桥的受力要求。</p>
+ 
+ <div style="text-align:center;"><img id="image515" src="../_static/fig/5-1-5.png" alt="Picture"></div>
+ <p style="color: dimgray;text-align: center;">图5-1-5  纵向人字形、横向门式钢塔示例（泰州长江大桥）</p>
+ <script type="text/javascript">var viewer = new Viewer(document.getElementById('image515'));</script>
+ 
+ <p><a href="#id5.1.2.5">五、自锚式体系</a> <span id="id5.1.2.5"></span></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-1.16"> [A5-1.16]</a><span id="idA5-1.16"></span>自锚式体系悬索桥[<a href="#image513e">图5-1-3e）</a>]是相对于地锚式悬索桥而言，不需要另外设置锚碇（重力式锚碇，或隧道式锚碇）将荷载产生的拉力传至大地以达到全桥的受力平衡，而是把主缆直接锚固在边跨的加劲梁端，主缆的水平拉力由加劲梁提供轴向压力自相平衡。为了承受主缆拉力，加劲梁必须是连续梁。这种桥型施工步骤受到了限制，必须在加劲梁、桥塔施工完成之后再吊装缆索、安装吊索，因此需要搭建大量临时支架以安装加劲梁，经济性较差。另外，上部结构体系转换较复杂。该桥型适用于较小跨径的悬索桥，及在土质不良的河段上建桥，或为了避免影响景观或河流冲刷、涌潮等因素不允许修建大体积的锚碇（或桥台）的情况下建桥。</p>
+ 
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>[拓展小知识5-1]加劲梁</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-1.17"> [A5-1.17]</a><span id="idA5-1.17"></span>加劲梁又称为刚性梁。悬索桥加劲梁主要起支承和传递荷载的作用，是承受风载和其他横向水平力的主要构件。仅由纵横梁组成的桥面过于柔性而易发生振动。采用抗扭性能较强的桁架做桥面，提高桁架高度可以增强桥梁的刚度，但会产生较大的迎风侧阻力，从而对整个桥梁的气动力稳定性产生很大的影响。降低梁的高度可以减小迎风侧阻力，风振响应在顺风向也会相应地减少，但这种特别柔的桥面可引发风致颤振。加劲梁采用经风洞试验选取的近乎流线型的闭口箱梁是空气动力稳定性能良好的新型悬索桥形式。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>[学习提示]</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-1.18"> [A5-1.18]</a><span id="idA5-1.18"></span>悬索桥的桥跨结构是缆索，在竖向荷载作用下承受拉力。由于缆索需要锚固，因此，缆索锚固于两端锚碇时为地锚式悬索桥，适用于大跨径和超大跨径悬索桥；缆索锚固于两端加劲梁时为自锚式悬索桥，该类悬索桥的特点是不需要庞大的重力式锚碇或隧道式锚碇来锚固主缆，桥梁整体观感更为独立，但由于加劲梁承受的轴向压力会随着自锚式悬索桥跨径的增大而增大，一般适用于300m以下跨径。汽车荷载并不行走在缆索上，因此，需要在缆索上设置吊索悬挂加劲梁，以供车辆行驶。由于承重结构缆索是柔性结构，为使车辆平稳行驶，吊索悬吊的梁不仅要满足活载作用下的挠曲变形，还应具有足够的抗扭转性能以保持在风荷载作用下的气动稳定性，因此，应设计为加劲梁。由于缆索在自重和吊索自重、加劲梁自重等作用下产生垂度，并且要保证加劲梁下净空要求，因此，主跨两端应设置桥塔支承起缆索。</p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-1.19"> [A5-1.19]</a><span id="idA5-1.19"></span>悬索桥按悬吊跨数可分为单跨悬索桥、双跨悬索桥、三跨悬索桥、多跨悬索桥，其中单跨悬索桥和三跨悬索桥最为常用。</p>
+ 
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>[思考与练习]</b></p>
+ <ol>
+ <li>悬索桥的基本组成是什么？各部分的受力特点是什么？</li>
+ <li>简述悬索桥有哪些类型？</li>
+ <li>自锚式悬索桥和地锚式悬索桥的主要区别是什么？</li>
+ </ol>
+ 
+
+ 
+
+
+
+
+
+

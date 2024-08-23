@@ -1,0 +1,188 @@
+第五节  锚碇设计
+-----------------------------
+
+.. raw:: html
+
+ <h3 id="test111">第五节  锚碇设计</h3>
+ <p><a href="#id5.2.5.1">一、锚碇类型及选择</a> <span id="id5.2.5.1"></span></p>
+ <p><a href="#id5.2.5.1.1">1.锚碇类型</a> <span id="id5.2.5.1.1"></span></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.106"> [A5-2.106]</a><span id="idA5-2.106"></span>地锚式悬索桥的锚碇分为重力式锚碇和隧道式锚碇两种结构形式，如<a href="#image5216">图5-2-16</a>所示。</p>
+ 
+ <link rel="stylesheet" type="text/css" href="../_static/viewer.min.css"/>
+ <script src="../_static/viewer.min.js" type="text/javascript" charset="utf-8"></script>
+
+ <div style="text-align:center;"><img id="image5216" src="../_static/fig/5-2-16.png" alt="Picture"></div>
+ <p style="color: dimgray;text-align: center;">a）重力式锚碇；b）隧道式锚碇<br>图5-2-16  锚碇结构形式</p>
+ <script type="text/javascript">var viewer = new Viewer(document.getElementById('image5216'));</script>
+
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（1）重力式锚碇</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.107"> [A5-2.107]</a><span id="idA5-2.107"></span>重力式锚碇由锚体、散索鞍支墩、锚室和基础组成[图5-2-15a）]。锚体为一庞大的混凝土结构，依其自重实现对缆索拉力的锚固；在锚体内预埋锚固缆索束股用的钢结构锚杆和钢结构锚固架，束股通过锚头与锚杆连接，再由锚杆将束股拉力传至锚固架后分散至混凝土锚体。锚体混凝土强度等级不应低于C25，局部高应力区域混凝土强度等级不应低于C30，但也不宜过髙，以减小水泥用量，防止锚碇大体积混凝土出现开裂。重力式锚碇从受力机理上可分为完全重力锚和重力嵌岩锚。</p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.108"> [A5-2.108]</a><span id="idA5-2.108"></span>①完全重力锚以混凝土自重及其产生的基底摩阻力来平衡主缆拉力，没有或不计锚前地基岩土的水平抗力，仅作为整体稳定性安全储备。完全重力锚设有浅埋的扩大基础、深埋的沉井基础及通过各种工法开挖基坑后浇筑底板、隔墙（或填芯混凝土）、顶板形成深埋的基础等刚性基础，这类基础均有底板，土体全部挖除，刚性很大，设计时可以不计基础周边地基岩土的水平抗力。</p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.109"> [A5-2.109]</a><span id="idA5-2.109"></span>②重力嵌岩锚以混凝土自重为主来平衡主缆拉力，同时考虑锚前岩石地基的水平抗力作用。嵌岩锚一般不单设基础，锚体直接坐落在较好的岩石地基上。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（2）隧道式锚碇</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.110"> [A5-2.110]</a><span id="idA5-2.110"></span>隧道式锚碇由锚塞体、散索鞍支墩、锚室组成[图5-2-15b）]。当锚碇处地形、地质等自然条件较好时，在山体开挖隧洞，将混凝土锚块（称锚塞体）或锚板设置于隧道底部，锚块嵌固在隧洞中与岩体形成整体抵抗主缆拉力。主缆通过锚固系统将拉力传递给锚塞体或锚板，再通过锚塞体与隧道岩体的黏结力传递给周边围岩或通过锚板以压力形式直接传给岩体,从而实现主缆索股的锚固。</p>
+ <p><a href="#id5.2.5.1.2">2.锚碇类型选择</a> <span id="id5.2.5.1.2"></span></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.111"> [A5-2.111]</a><span id="idA5-2.111"></span>隧道式锚碇混凝土用量较重力式锚碇大为节省，经济性能更为显著。仅从适用性来讲，重力式锚碇几乎适用于所有场合。当锚址处综合地质条件较好、地形有利于全桥总体布置，且施工条件能满足隧洞开挖及出渣时，从经济性角度出发,应首先考虑修建隧道锚的可能性。只有在全面考虑建设条件、经综合技术经济比较认为隧道锚明显不合适时,才选择修建重力锚。</p>
+ 
+ <p><a href="#id5.2.5.2">二、锚固系统</a> <span id="id5.2.5.2"></span></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.112"> [A5-2.112]</a><span id="idA5-2.112"></span>锚固系统包括置于锚体混凝土内的锚固结构和缆索束股间的连接结构。</p>
+ <p><a href="#id5.2.5.2.1">1. 锚固结构</a> <span id="id5.2.5.2.1"></span></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.113"> [A5-2.113]</a><span id="idA5-2.113"></span>锚固结构有钢构架和预应力钢绞线两种基本形式。钢构架由背梁和钢锚杆组成，钢锚杆的前端伸出前锚面，与缆索束股直接相连，如<a href="#image5217">图5-2-17</a>所示。锚碇预应力锚固结构常采用高强度预应力钢绞线，如<a href="#image5218">图5-2-18</a>所示。</p>
+
+ <div style="text-align:center;"><img id="image5217" src="../_static/fig/5-2-17.png" alt="Picture"></div>
+ <p style="color: dimgray;text-align: center;">图5-2-17  钢构架锚固示例（尺寸单位：m）</p>
+ <script type="text/javascript">var viewer = new Viewer(document.getElementById('image5217'));</script>
+ 
+ <div style="text-align:center;"><img id="image5218" src="../_static/fig/5-2-18.png" alt="Picture"></div>
+ <p style="color: dimgray;text-align: center;">a）锚固预应力系统一般构造；b）锚固结构侧面<br>图5-2-18  预应力钢绞线锚固示例（尺寸单位：cm）</p>
+ <script type="text/javascript">var viewer = new Viewer(document.getElementById('image5218'));</script>
+
+ <p><a href="#id5.2.5.2.2">2. 锚固连接结构</a> <span id="id5.2.5.2.2"></span></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.114"> [A5-2.114]</a><span id="idA5-2.114"></span>AS法纺丝成缆的锚固连接方式如<a href="#image5219">图5-2-19</a>示，由半圆形蹄靴和高强度可调式拉杆构成。PPWS法成缆的锚固连接方式有H形或箱形锚杆与束股锚头直接连接，目前多采用预应力锚固系统与束股锚头连接，如<a href="#image5220">图5-2-20</a>所示。</p>
+ 
+ <div style="text-align:center;"><img id="image5219" src="../_static/fig/5-2-19.png" alt="Picture"></div>
+ <p style="color: dimgray;text-align: center;">图5-2-19  蹄靴式锚固示例（尺寸单位：mm）</p>
+ <script type="text/javascript">var viewer = new Viewer(document.getElementById('image5219'));</script>
+ 
+ <div style="text-align:center;"><img id="image5220" src="../_static/fig/5-2-20.png" alt="Picture"></div>
+ <p style="color: dimgray;text-align: center;">图5-2-20  锚碇预应力锚固单元构造示例（尺寸单位：mm）</p>
+ <script type="text/javascript">var viewer = new Viewer(document.getElementById('image5220'));</script>
+
+ <p><a href="#id5.2.5.3">三、锚碇设计参数</a> <span id="id5.2.5.3"></span></p>
+ <p><a href="#id5.2.5.3.1">1.重力式锚碇</a> <span id="id5.2.5.3.1"></span></p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（1）地基承载力安全系数</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.115"> [A5-2.115]</a><span id="idA5-2.115"></span>地基承载力安全系数即地基竖向极限承载力与容许承载力的比值。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（2）基底摩擦系数</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.116"> [A5-2.116]</a><span id="idA5-2.116"></span>基底摩擦系数即基础底面与地基岩土之间的静摩擦系数。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（3）整体抗滑动稳定安全系数</b></p>
+ <span id="idgs521"></span>
+
+$$K_h=\\frac{H_u}{H}≥2\\tag{5-2-1}$$
+
+.. raw:: html
+
+ <table border="0" style="font-family:times new roman" id="gongshi">
+  <tr>
+  <td width="50px" align='center' id="eqzs">式中</td>
+  <td width="30px" align='left' id="eqzs"><i>K</i><sub>h</sub></td>
+  <td width="40px" align='left' id="eqzs">——</td>
+  <td id="eqzs">整体抗滑动稳定安全系数；</td>
+  </tr>
+  <tr>
+  <td id="eqzs"></td>
+  <td id="eqzs"><i>H</i><sub>u</sub></td>
+  <td id="eqzs">——</td>
+  <td id="eqzs">平行于滑动面的所有抵抗力之和；</td>
+  </tr>
+  <tr>
+  <td id="eqzs"></td>
+  <td id="eqzs">H</td>
+  <td id="eqzs">——</td>
+  <td id="eqzs">平行于滑动面的所有滑动力之和。</td>
+  </tr>
+ </table>
+ <p></p> 
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（4）整体抗倾覆稳定安全系数</b></p>
+ <p style="text-align:justify;font-family:times new roman">一般有两种算法:</p>
+ <span id="idgs522"></span>
+
+$${第一种：}K_q=\\frac{e}{p}≤1\\tag{5-2-2}$$
+
+.. raw:: html
+
+ <table border="0" style="font-family:times new roman" id="gongshi">
+  <tr>
+  <td width="50px" align='center' id="eqzs">式中</td>
+  <td width="30px" align='left' id="eqzs"><i>K</i><sub>q</sub></td>
+  <td width="40px" align='left' id="eqzs">——</td>
+  <td id="eqzs">整体抗倾覆稳定安全系数；</td>
+  </tr>
+  <tr>
+  <td id="eqzs"></td>
+  <td id="eqzs">e</td>
+  <td id="eqzs">——</td>
+  <td id="eqzs">基底以上外力合力作用点对基底重心轴的偏心距；</td>
+  </tr>
+  <tr>
+  <td id="eqzs"></td>
+  <td id="eqzs">p</td>
+  <td id="eqzs">——</td>
+  <td id="eqzs">基底底面核心半径。</td>
+  </tr>
+ </table>
+ <p></p> 
+ <span id="idgs523"></span>
+
+$${第二种：}K_q=\\frac{M_u}{M}≥2\\tag{5-2-3}$$
+
+.. raw:: html
+
+ <table border="0" style="font-family:times new roman" id="gongshi">
+  <tr>
+  <td width="50px" align='center' id="eqzs">式中</td>
+  <td width="30px" align='left' id="eqzs"><i>M</i><sub>q</sub></td>
+  <td width="40px" align='left' id="eqzs">——</td>
+  <td id="eqzs">相对于基础前趾点的抗倾力矩；</td>
+  </tr>
+  <tr>
+  <td id="eqzs"></td>
+  <td id="eqzs">M</td>
+  <td id="eqzs">——</td>
+  <td id="eqzs">相对于基础前趾点的倾覆力矩。</td>
+  </tr>
+ </table>
+ <p style="text-align:justify;font-family:times new roman">其余符号意义同前。</p>
+ <p></p> 
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（5）沉降及变位指标</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.117"> [A5-2.117]</a><span id="idA5-2.117"></span>主要指由于基底地基沉降及锚体的结构变形导致的理论散索点在竖向及水平向的位移值，取值视结构承受能力确定。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（6）锚块斜截面抗剪强度指标</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.118"> [A5-2.118]</a><span id="idA5-2.118"></span>对滑动的验算结果为：K>1.5。</p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.119"> [A5-2.119]</a><span id="idA5-2.119"></span>对剪应力的验算结果为：τ<[τ]。</p>
+
+ <p><a href="#id5.2.5.3.2">2.隧道式锚碇</a> <span id="id5.2.5.3.2"></span></p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（1）主要构造尺寸</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.120"> [A5-2.120]</a><span id="idA5-2.120"></span>隧道式锚碇主要构造尺寸包括锚塞体长度、横断面尺寸、散索长度等。锚塞体长度是指锚塞体沿主缆轴线方向的长度，即主缆索股锚固长度。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（2）抗拔出安全系数（或强度安全储备系数）</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.121"> [A5-2.121]</a><span id="idA5-2.121"></span>强度安全储备系数，即在进行锚体与围岩共同作用整体稳定性分析时，围岩在失稳破坏前锚碇所达到的极限承载力与设计缆力的比值，相当于重力式锚碇的抗滑动安全系数。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（3）周边围岩平均剪应力</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.122"> [A5-2.122]</a><span id="idA5-2.122"></span>将岩体视为匀质体，在缆力作用下﹐锚固长度范围内岩体发生以锚塞体尾部断面为界面的筒体受剪破坏，从而可计算围岩的平均剪应力。</p>
+ 
+ <p><a href="#id5.2.5.3.3">3.锚固系统</a> <span id="id5.2.5.3.3"></span></p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（1）自由长度</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.123"> [A5-2.123]</a><span id="idA5-2.123"></span>自由长度指主缆索股经散索鞍（或散索套）后沿轴线至前锚面的垂直距离。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（2）锚固长度</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.124"> [A5-2.124]</a><span id="idA5-2.124"></span>锚固长度指沿主缆中心轴线方向锚块内锚固系统的长度。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（3）前锚面布置</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.125"> [A5-2.125]</a><span id="idA5-2.125"></span>指在前锚面内各锚固点之间垂直和水平方向的距离。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>（4）安全度</b></p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa">①锚固系统设计安全系数；</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa">②预应力钢束施加的有效力与索股拉力的比值；</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa">③锚下混凝土的应力安全系数；</p>
+ <p style="text-align:justify;font-family:times new roman">④疲劳性能指标。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>[拓展小知识5-2] 悬索桥的抗风设计</b></p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><a href="#idA5-2.126"> [A5-2.126]</a><span id="idA5-2.126"></span>抗风设计是悬索桥设计中非常重要的一环，为了提高截面的抗风性能，除了改变加劲梁的截面形式，选择扭转刚度大的闭口截面，还可以从以下几个方面进行改进：</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa">（1）调整主缆位置：大跨悬索桥的结构刚度主要来自于主缆，通过调整主缆同加劲梁的相对位置可以达到提高结构抗扭刚度和扭转震动频率的目的。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa">（2）增加水平辅助索：水平辅助索可以提高悬索桥的抗扭刚度从而提高扭转频率，抑制主缆的反对称抖动，从而提高结构的抗扭刚度。</p>
+ <p style="text-align:justify;font-family:times new roman">（3）增加横向辅助索：横向辅助索的作用在于将加劲梁的扭转振动同侧向水平振动在一定程度上耦合起来，从而提高结构总体抗扭刚度。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>[学习提示]</b></p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.127"> [A5-2.127]</a><span id="idA5-2.127"></span>悬索桥设计首先是根据地形、地质、水文、气象、通航等条件确定桥位、桥高、桥长、合理分跨等；其次是确定悬索桥的跨度比、垂跨比、宽跨比、加劲梁的高宽比与高跨比、加劲梁的支承体系、吊索及中央扣、锚碇设置等，并考虑抗风稳定性、控制风致结构变形以及景观设计等内容；最后是对缆索、桥塔、锚碇、加劲梁、索鞍、吊索及索夹等各部分结构进行合理的选型和细部构造设计。</p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.128"> [A5-2.128]</a><span id="idA5-2.128"></span>悬索桥加劲梁的抗风稳定性是抗风设计的主要内容，抗风设计要求不高时，一般选择经济性好、易施工、扭转刚度相对较低的加劲梁截面，如肋板式开口截面。而当抗风设计要求高时，一般选择扭转刚度大的闭口截面，如闭口钢箱梁形式。</p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.129"> [A5-2.129]</a><span id="idA5-2.129"></span>悬索桥的结构防护与耐久性问题主要包括钢筋混凝土及预应力混凝土的腐蚀、缆索结构的锈蚀、钢结构的疲劳和腐蚀。</p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.130"> [A5-2.130]</a><span id="idA5-2.130"></span>悬索桥加劲梁形式多采用钢加劲梁，这是因为钢材强度髙，承载能力大；结构轻巧，施工安装便捷；工厂化制造，质量易得到保证。</p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.131"> [A5-2.131]</a><span id="idA5-2.131"></span>在我国，悬索桥桥塔多采用混凝土结构，桥塔塔柱截面形式一般采用空心矩形截面，混凝土强度多采用C50。</p>
+ <p style="text-align:justify;font-family:times new roman"><a href="#idA5-2.132"> [A5-2.132]</a><span id="idA5-2.132"></span>隧道式锚碇混凝土用量较重力式锚碇大为节省，经济性能好，当锚碇处地形、地质等自然条件较好时，应优先考虑隧道式锚碇。</p>
+ <p style="text-align:justify;font-family:times new roman" id="aaa"><b>[思考与练习]</b></p>
+ <ol>
+ <li>悬索桥的总体设计包括哪些内容？</li>
+ <li>混凝土结构防护设计措施有哪些？</li>
+ <li>悬索桥缆索系统由哪些部分组成？各部分如何进行设计？</li>
+ <li>加劲梁主要类型有哪些？各类型加劲梁的结构特点是什么？适用于哪些情况？</li>
+ <li>为了抵抗横桥向的风荷载或地震作用，横桥向桥塔一般采取什么形式？</li>
+ <li>悬索桥的锚碇类型如何选择？</li>
+ <li>悬索桥的垂跨比是什么？垂跨比的大小对悬索桥设计有哪些影响？</li>
+ <li>自锚式悬索桥与地锚式悬索桥受力及构造有何区别？为何大跨径悬索桥采用后者？</li>
+ <li>悬索桥的跨数与什么有关？是否桥塔个数越多，跨数就越多？</li>
+ </ol>
+
+
+:math:`\ `

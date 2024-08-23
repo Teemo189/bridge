@@ -107,7 +107,9 @@ latex_elements = {
     \\AtEndDocument{\\end{CJK}}
     ''',
 }
- 
-
+extensions = [
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.graphviz',
+]
 
 
